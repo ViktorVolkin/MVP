@@ -9,6 +9,7 @@ const robot = Roboto({
 	subsets: ["cyrillic", "latin"],
 	preload: true,
 })
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
 	openGraph: {
 		title: "WebLeadCraft",
-		description: "Boost your leads, we offer marketing,sites...",
+		description: "Boost your leads, we offer marketing, sites...",
 		images: [
 			{
 				url: "/marketing_fun_image.jpg",
@@ -33,7 +34,6 @@ export const metadata: Metadata = {
 		],
 	},
 }
-const messages = await getMessages()
 
 export function generateStaticParams() {
 	return routing.locales.map((locale) => ({ locale }))
@@ -42,11 +42,13 @@ export function generateStaticParams() {
 export default async function RootLayout({
 	children,
 	params,
-}: Readonly<{
+}: {
 	children: React.ReactNode
-	params: Promise<{ locale: string }>
-}>) {
-	const { locale } = await params
+	params: { locale: string }
+}) {
+	const { locale } = params
+	const messages = await getMessages()
+
 	return (
 		<html lang={locale}>
 			<body className={robot.className}>
