@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 		description: "Boost your leads, we offer marketing, sites...",
 		images: [
 			{
-				url: "/view.jpg",
+				url: `${siteUrl}/view.jpg`,
 				width: 1200,
 				height: 630,
 				alt: "Funny image.",
