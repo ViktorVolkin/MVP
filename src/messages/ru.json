@@ -1,1 +1,23 @@
-{}
+{
+	"header": {
+		"main": "Главная",
+		"aboutUs": "О нас",
+		"services": "Услуги",
+		"contacts": "Контакты",
+		"makeCall": "Сделать звонок"
+	},
+	"footer": {
+		"companyDescription": "Наша компания очень крутая",
+		"socials": "Мы в соц.сетях",
+		"navigation": "Навигация",
+		"aboutUs": "О нас",
+		"aboutCompany": "О компании",
+		"careers": "Вакансии",
+		"blog": "Блог",
+		"contacts": "Контакты"
+	},
+	"alts": {
+		"telegram": "Ссылка на наш Telegram",
+		"burgerMenu": "Нажмите сюда чтобы открыть меню"
+	}
+}

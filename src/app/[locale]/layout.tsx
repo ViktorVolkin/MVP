@@ -1,11 +1,18 @@
 import { routing } from "@/i18n/routing"
 import type { Metadata } from "next"
 import { NextIntlClientProvider } from "next-intl"
-import { Roboto } from "next/font/google"
-import "../globals.css"
-import { getMessages } from "next-intl/server"
-
-const robot = Roboto({
+import { Manrope } from "next/font/google"
+import "./globals.css"
+import { getMessages, getTranslations } from "next-intl/server"
+import { Footer } from "../components/widgets/Footer"
+import { Header } from "../components/widgets/Header"
+import styles from "./layout.module.css"
+import {
+	FOOTER__SOCIALS,
+	NAVIGATION__BLOCKS,
+	translateBlock,
+} from "../components/lib/constants"
+const manrope = Manrope({
 	subsets: ["cyrillic", "latin"],
 	preload: true,
 })
@@ -24,11 +31,12 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "WebLeadCraft",
 		description: "Boost your leads, we offer marketing, sites...",
+		siteName: "WebLeadCraft",
 		images: [
 			{
 				url: `${siteUrl}/view.jpg`,
-				width: 1200,
-				height: 630,
+				width: 600,
+				height: 800,
 				alt: "Funny image.",
 			},
 		],
@@ -48,12 +56,43 @@ export default async function RootLayout({
 }) {
 	const { locale } = await params
 	const messages = await getMessages()
+	const t = await getTranslations()
 
 	return (
 		<html lang={locale}>
-			<body className={robot.className}>
+			<body className={manrope.className}>
 				<NextIntlClientProvider messages={messages}>
-					{children}
+					<div className={styles.wrapper}>
+						<Header
+							listLinks={await translateBlock(
+								NAVIGATION__BLOCKS.navigation
+							)}
+							phoneButton={{
+								phoneNumber: "+79934708112",
+								makeCall: t("header.makeCall"),
+							}}
+							telegram={FOOTER__SOCIALS[0].link}
+							email={"gleb__vinogradovv@gmail.com"}
+						/>
+						<div className={styles.main}>{children}</div>
+						<Footer
+							navigation={[
+								{
+									title: t("footer.navigation"),
+									elements: await translateBlock(
+										NAVIGATION__BLOCKS.navigation
+									),
+								},
+								{
+									title: t("footer.aboutCompany"),
+									elements: await translateBlock(
+										NAVIGATION__BLOCKS.aboutUs
+									),
+								},
+							]}
+							socials={FOOTER__SOCIALS}
+						></Footer>
+					</div>
 				</NextIntlClientProvider>
 			</body>
 		</html>

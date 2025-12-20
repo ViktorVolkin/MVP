@@ -1,1 +1,24 @@
-{}
+{
+	"header": {
+		"main": "Main",
+		"aboutUs": "About Us",
+		"services": "Services",
+		"contacts": "Contacts",
+		"makeCall": "Make a call"
+	},
+	"footer": {
+		"companyDescription": "Maximum amount of characters without breaking our styles are somewhat near this so:",
+		"socials": "Our socials",
+		"navigation": "Navigation",
+		"aboutUs": "About Us",
+		"aboutCompany": "About the Company",
+		"careers": "Careers",
+		"blog": "Blog",
+		"contacts": "Contacts"
+	},
+
+	"alts": {
+		"burgerMenu": "Click here to open a menu",
+		"telegram": "Link to our Telegram"
+	}
+}
