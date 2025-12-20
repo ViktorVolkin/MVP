@@ -1,6 +1,6 @@
 import styles from "./IntroductionBlock.module.css"
 import { PreviewCard } from "../../shared/PreviewCard"
-import PreviewImage from "@/../public/liss_09122025_3D_isometric_hero_illustration_floating_layered_9e438502.png"
+import PreviewImage from "@/../public/фон10.png"
 import Image from "next/image"
 import { IntroductionBlockProps } from "./IntroductionBlock.types"
 export async function IntroductionBlock({
