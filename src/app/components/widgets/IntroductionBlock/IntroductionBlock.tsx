@@ -1,6 +1,6 @@
 import styles from "./IntroductionBlock.module.css"
 import { PreviewCard } from "../../shared/PreviewCard"
-import PreviewImage from "@/../public/фон10.png"
+import PreviewImage from "@/../public/bobr1.jpg"
 import Image from "next/image"
 import { IntroductionBlockProps } from "./IntroductionBlock.types"
 export async function IntroductionBlock({
