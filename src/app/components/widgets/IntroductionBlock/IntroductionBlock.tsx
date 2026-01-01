@@ -9,7 +9,7 @@ export async function IntroductionBlock({
 	aboutCompanyBlock,
 }: IntroductionBlockProps) {
 	return (
-		<div className={styles.previewBlock}>
+		<section className={styles.previewBlock}>
 			<Image
 				src={PreviewImage}
 				alt="filler image"
@@ -33,6 +33,6 @@ export async function IntroductionBlock({
 					{aboutCompanyBlock.text}
 				</p>
 			</div>
-		</div>
+		</section>
 	)
 }

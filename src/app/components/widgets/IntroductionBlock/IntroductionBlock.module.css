@@ -7,7 +7,6 @@
 	place-items: center;
 	padding-top: 50px;
 	height: 1100px;
-	margin-bottom: 250px;
 }
 .previewBlock__image {
 	position: absolute;
@@ -20,7 +19,7 @@
 .previewBlock__title {
 	max-width: 1200px;
 	text-align: center;
-	font-size: 63px;
+	font-size: 55px;
 	font-weight: 900;
 	margin-bottom: 80px;
 }

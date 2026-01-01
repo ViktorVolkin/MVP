@@ -1,1 +1,1 @@
-// export { ServicesBlock } from "./ServicesBlock"
+export { ServicesBlock } from "./ServicesBlock"

@@ -7,7 +7,7 @@ import Logo from "@/../public/logo.png"
 export async function Footer({ navigation, socials }: FooterProps) {
 	const t = await getTranslations("footer")
 	return (
-		<div className={styles.footer__wrapper}>
+		<footer className={styles.footer__wrapper}>
 			<div className={styles.footer__container}>
 				<div className={styles.data__block}>
 					<Image
@@ -59,6 +59,6 @@ export async function Footer({ navigation, socials }: FooterProps) {
 					</ul>
 				</div>
 			</div>
-		</div>
+		</footer>
 	)
 }

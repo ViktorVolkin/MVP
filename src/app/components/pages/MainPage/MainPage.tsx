@@ -1,15 +1,20 @@
 import { IntroductionBlock } from "../../widgets/IntroductionBlock"
+import { ServicesBlock } from "../../widgets/ServicesBlock"
 import { MainPageProps } from "./MainPage.types"
-export function MainPage({
-	aboutCompanyBlock,
-	previewCards,
-	title,
-}: MainPageProps) {
+import styles from "./MainPage.module.css"
+export function MainPage({ introduction, services }: MainPageProps) {
 	return (
-		<IntroductionBlock
-			aboutCompanyBlock={aboutCompanyBlock}
-			previewCards={previewCards}
-			title={title}
-		/>
+		<main className={styles.main}>
+			<IntroductionBlock
+				aboutCompanyBlock={introduction.aboutCompanyBlock}
+				previewCards={introduction.previewCards}
+				title={introduction.title}
+			/>
+			<ServicesBlock
+				titleKeywords={services.titleKeywords}
+				services={services.services}
+				title={services.title}
+			/>
+		</main>
 	)
 }
