@@ -41,6 +41,13 @@ export const metadata: Metadata = {
 			},
 		],
 	},
+	alternates: {
+		canonical: "/",
+		languages: {
+			"en-US": "/en",
+			"ru-RU": "/ru",
+		},
+	},
 }
 
 export function generateStaticParams() {
@@ -74,7 +81,7 @@ export default async function RootLayout({
 							telegram={FOOTER__SOCIALS[0].link}
 							email={"gleb__vinogradovv@gmail.com"}
 						/>
-						<div className={styles.main}>{children}</div>
+						<main className={styles.main}>{children}</main>
 						<Footer
 							navigation={[
 								{

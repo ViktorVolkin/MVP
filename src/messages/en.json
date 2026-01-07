@@ -16,7 +16,15 @@
 		"blog": "Blog",
 		"contacts": "Contacts"
 	},
-
+	"ConsultationForm": {
+		"services": ["Design", "Development", "Marketing"],
+		"errors": {
+			"name": "Name must be at least 2 characters long",
+			"phone": "Enter correct phone number",
+			"services": "Choose an option from the list",
+			"contactMethod": "Choose an option from the list"
+		}
+	},
 	"alts": {
 		"burgerMenu": "Click here to open a menu",
 		"telegram": "Link to our Telegram"

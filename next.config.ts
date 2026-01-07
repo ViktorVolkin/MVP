@@ -4,6 +4,9 @@ import createNextIntlPlugin from "next-intl/plugin"
 const nextConfig: NextConfig = {
 	reactCompiler: true,
 	turbopack: {},
+	images: {
+		formats: ["image/avif", "image/webp"],
+	},
 }
 
 const withNextIntl = createNextIntlPlugin()
