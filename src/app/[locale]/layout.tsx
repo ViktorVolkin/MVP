@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 		siteName: "WebLeadCraft",
 		images: [
 			{
-				url: `${siteUrl}/view.jpg`,
+				url: "/view.jpg",
 				width: 600,
 				height: 800,
 				alt: "Funny image.",
