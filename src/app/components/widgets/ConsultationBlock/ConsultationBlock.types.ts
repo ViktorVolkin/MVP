@@ -1,6 +1,5 @@
-import { ConsultationFormProps } from "../ConsultationForm/ConsultationForm.types"
-
-export interface ConsultationBlockProps extends ConsultationFormProps {
+export interface ConsultationBlockProps {
 	title: string
+	keywords: string[]
 	keyPoints: string[]
 }

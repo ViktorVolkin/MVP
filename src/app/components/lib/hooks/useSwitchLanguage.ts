@@ -6,7 +6,7 @@ export const useSwitchLanguage = () => {
 	const pathname = usePathname()
 
 	const switchLanguage = (changeTo: LocalesTypes) => {
-		router.replace(pathname, { locale: changeTo })
+		router.replace(pathname, { locale: changeTo, scroll: false })
 	}
 
 	return switchLanguage

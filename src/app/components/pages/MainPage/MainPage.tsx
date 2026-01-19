@@ -3,11 +3,13 @@ import { ServicesBlock } from "../../widgets/ServicesBlock"
 import { MainPageProps } from "./MainPage.types"
 import { AboutUsBlock } from "../../widgets/AboutUsBlock"
 import { StepsOfWork } from "../../widgets/StepsOfWork"
+import { ConsultationBlock } from "../../widgets/ConsultationBlock"
 export function MainPage({
 	introduction,
 	services,
 	AboutUs,
 	stepsOfWork,
+	consultationBlock,
 }: MainPageProps) {
 	return (
 		<>
@@ -27,6 +29,11 @@ export function MainPage({
 				discussProjectBtn={AboutUs.discussProjectBtn}
 			/>
 			<StepsOfWork title={stepsOfWork.title} steps={stepsOfWork.steps} />
+			<ConsultationBlock
+				keyPoints={consultationBlock.keyPoints}
+				title={consultationBlock.title}
+				keywords={consultationBlock.keywords}
+			/>
 		</>
 	)
 }

@@ -5,16 +5,17 @@ import arrowDown from "@/../public/arrowDown.svg"
 import React from "react"
 import Image from "next/image"
 import type { DropdownProps } from "./Dropdown.types"
-
+import clsx from "clsx"
 export const Dropdown = ({
 	buttonText,
 	iconBeforeText,
 	children,
 	sideToPopUp = "left",
+	variant,
 }: DropdownProps) => {
 	const containerRef = useRef<HTMLDivElement>(null)
-	const [isOpen, setIsOpen] = useState(false)
-
+	const isError = variant === "error"
+	const [isOpen, setIsOpen] = useState(isError)
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
@@ -24,13 +25,9 @@ export const Dropdown = ({
 				setIsOpen(false)
 			}
 		}
-
-		if (isOpen) {
-			document.addEventListener("click", handleClickOutside)
-		} else {
-			document.removeEventListener("click", handleClickOutside)
-		}
-
+		if (isError || !isOpen)
+			return document.removeEventListener("click", handleClickOutside)
+		document.addEventListener("click", handleClickOutside)
 		return () => {
 			document.removeEventListener("click", handleClickOutside)
 		}
@@ -40,7 +37,7 @@ export const Dropdown = ({
 		<div className={styles.dropdown__container} ref={containerRef}>
 			<div
 				className={styles.dropdown__button}
-				onClick={() => setIsOpen(!isOpen)}
+				onClick={() => (variant !== "error" ? setIsOpen(!isOpen) : "")}
 				aria-haspopup="true"
 				aria-expanded={isOpen}
 			>
@@ -54,27 +51,31 @@ export const Dropdown = ({
 					/>
 				)}
 				{buttonText}
-				<Image
-					src={arrowDown}
-					alt="arrow"
-					width={18}
-					height={18}
-					className={`${styles.dropdown__icon} ${
-						isOpen ? styles.dropdown__icon_open : ""
-					}`}
-				/>
+				{!isError && (
+					<Image
+						src={arrowDown}
+						alt="arrow"
+						width={18}
+						height={18}
+						className={clsx(styles.dropdown__icon, {
+							[styles.dropdown__icon_open]: isOpen,
+						})}
+					/>
+				)}
+
 				{isOpen && (
 					<ul
-						className={`${styles.dropdown__list} ${
-							sideToPopUp === "right"
-								? styles.dropdown__list_right
-								: styles.dropdown__list_left
-						}`}
+						className={clsx(
+							styles.dropdown__list,
+							styles[`dropdown__list_${sideToPopUp}`]
+						)}
 					>
 						{React.Children.map(children, (child, index) => (
 							<li
 								key={index}
-								className={styles.dropdown__listItem}
+								className={clsx(styles.dropdown__listItem, {
+									[styles.dropdown__listItem_error]: isError,
+								})}
 							>
 								{child}
 							</li>

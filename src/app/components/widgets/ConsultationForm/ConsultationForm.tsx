@@ -1,82 +1,139 @@
 "use client"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useTranslations } from "next-intl"
-import { useMemo } from "react"
+import PhoneInput from "react-phone-number-input"
+import "react-phone-number-input/style.css"
+import styles from "./ConsultationForm.module.css"
+import Dropdown from "../../shared/Dropdown"
+import clsx from "clsx"
+import { sendMessageToTelegram } from "./_api/action"
+import { useState } from "react"
 
 export function ConsultationForm() {
 	const t = useTranslations("ConsultationForm")
-	const servicesArray = useMemo(() => t.raw("services") as string[], [])
+	const [submitError, setSubmitError] = useState<string | null>(null)
+	const [isSubmitting, setIsSubmitting] = useState(false)
 
 	const consultationFormSchema = z.object({
 		name: z.string().min(2, t("errors.name")),
-		phone: z.string().regex(/^\+?[1-9]\d{1,14}$/, t("errors.phone")),
-		services: z.enum(servicesArray, { message: t("errors.services") }),
-		contactMethod: z
-			.enum(["call", "sms"], { error: t("errors.contactMethod") })
-			.optional(),
+		phone: z.e164({ message: t("errors.phone") }),
+		preferredType: z.enum(["call", "sms"]),
 	})
+	type FormValues = z.infer<typeof consultationFormSchema>
 
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
-	} = useForm({
+		control,
+		reset,
+	} = useForm<FormValues>({
 		resolver: zodResolver(consultationFormSchema),
 		defaultValues: {
 			name: "",
 			phone: "",
-			services: undefined,
+			preferredType: "call",
 		},
 	})
+	const onSubmit = handleSubmit(async (data) => {
+		setIsSubmitting(true)
+		setSubmitError(null)
+		const result = await sendMessageToTelegram(data)
+		setIsSubmitting(false)
 
-	const selectedService = watch("services")
-
+		if (!result.success) {
+			setSubmitError(result.error || t("errors.generic_submit"))
+		} else {
+			alert("Успешно отправлено!")
+			reset()
+		}
+	})
 	return (
-		<form
-			onSubmit={handleSubmit((d) => console.log(d))}
-			className="space-y-4"
-		>
-			<input {...register("name")} placeholder="Имя" />
-			{errors.name && <p>{errors.name.message as string}</p>}
-
-			<input {...register("phone")} placeholder="+7..." />
-			{errors.phone && <p>{errors.phone.message as string}</p>}
-
-			<select {...register("services")}>
-				<option value="">Выберите услугу</option>
-				{servicesArray.map((service) => (
-					<option key={service} value={service}>
-						{service}
-					</option>
-				))}
-			</select>
-			{errors.services && <p>{errors.services.message as string}</p>}
-
-			{selectedService && (
-				<div>
-					<label>
-						<input
-							type="radio"
-							value="call"
-							{...register("contactMethod")}
-						/>{" "}
-						Call
-					</label>
-					<label>
-						<input
-							type="radio"
-							value="sms"
-							{...register("contactMethod")}
-						/>{" "}
-						SMS
-					</label>
+		<form onSubmit={onSubmit} className={styles.form}>
+			{submitError && (
+				<div className={styles.input__container}>
+					<Dropdown sideToPopUp="bottom" variant="error">
+						<p className={styles.error}>{submitError}</p>
+					</Dropdown>
 				</div>
 			)}
+			<div className={styles.input__container}>
+				<input
+					{...register("name")}
+					placeholder={t("placeholders.name")}
+					className={styles.input}
+				/>
 
-			<button type="submit">Отправить</button>
+				<div
+					className={clsx({
+						[styles.hidden]: !errors.name?.message,
+					})}
+				>
+					<Dropdown sideToPopUp="bottom" variant="error">
+						<p className={styles.error}>
+							{errors.name?.message ?? ""}
+						</p>
+					</Dropdown>
+				</div>
+			</div>
+
+			<div className={styles.input__container}>
+				<Controller
+					name="phone"
+					control={control}
+					render={({ field: { onChange, value } }) => (
+						<PhoneInput
+							placeholder={t("placeholders.phone")}
+							value={value}
+							onChange={onChange}
+							defaultCountry="RU"
+							international
+							className={styles.phoneInput}
+							numberInputProps={{
+								className: styles.innerInput,
+							}}
+						/>
+					)}
+				/>
+				<div
+					className={clsx({
+						[styles.hidden]: !errors.phone?.message,
+					})}
+				>
+					<Dropdown sideToPopUp="bottom" variant="error">
+						<p className={styles.error}>{errors.phone?.message}</p>
+					</Dropdown>
+				</div>
+			</div>
+			<div className={styles.radio__container}>
+				<div className={styles.radio__container_option}>
+					<input
+						{...register("preferredType")}
+						type="radio"
+						id="sms"
+						value="sms"
+					/>
+					<label htmlFor="sms">{t("sms")}</label>
+				</div>
+				<div className={styles.radio__container_option}>
+					<input
+						{...register("preferredType")}
+						type="radio"
+						id="call"
+						value="call"
+					/>
+					<label htmlFor="call">{t("call")}</label>
+				</div>
+			</div>
+			<button
+				type="submit"
+				className={styles.send_btn}
+				disabled={isSubmitting}
+			>
+				{t("submitButton")}
+			</button>
 		</form>
 	)
 }

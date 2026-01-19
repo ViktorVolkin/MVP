@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation"
 import Image from "next/image"
 import Logo from "@/../public/logo.png"
 import BurgerMenu from "@/../public/burgerMenu.svg"
-import { useMedia } from "../../lib/hooks/useMedia"
 import { Activity, useState } from "react"
 import { useLocale, useTranslations } from "next-intl"
 import Dropdown from "../../shared/Dropdown"
@@ -14,6 +13,7 @@ import unitedKingdomFlag from "@/../public/UKflag.png"
 import SidebarMenu from "../SidebarMenu"
 import TelegramIcon from "@/../public/telegram.svg"
 import { useSwitchLanguage } from "../../lib/hooks"
+// на 1200 px и выше показываем десктопную версию
 export function Header({
 	listLinks,
 	phoneButton,
@@ -26,7 +26,6 @@ export function Header({
 	email: string
 }) {
 	const [popupOpen, setPopupOpen] = useState<boolean>(false)
-	const isDesktop = useMedia(1200, 99999)
 	const t = useTranslations()
 	const currentLanguage = useLocale()
 	const handleLanguageChange = useSwitchLanguage()
@@ -42,7 +41,7 @@ export function Header({
 						className={styles.logo}
 					/>
 				</Link>
-				<Activity mode={isDesktop ? "visible" : "hidden"}>
+				<div className={styles.header__navigation_desktop}>
 					<nav className={styles.header__navigation}>
 						<ul className={styles.navigation__list}>
 							{listLinks.map((item) => (
@@ -99,9 +98,9 @@ export function Header({
 							</span>
 						</Link>
 					</nav>
-				</Activity>
+				</div>
 
-				<Activity mode={!isDesktop ? "visible" : "hidden"}>
+				<div className={styles.header__navigation_mobile}>
 					<div className={styles.phone__buttons}>
 						<Dropdown
 							sideToPopUp="right"
@@ -137,7 +136,7 @@ export function Header({
 							/>
 						</button>
 					</div>
-				</Activity>
+				</div>
 				<SidebarMenu
 					isOpen={popupOpen}
 					onClose={() => setPopupOpen(false)}

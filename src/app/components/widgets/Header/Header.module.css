@@ -89,7 +89,7 @@
 }
 .phone__buttons {
 	display: flex;
-	gap: 100px;
+	gap: 75px;
 }
 .sidebarMenu__wrapper {
 	display: flex;
@@ -113,4 +113,20 @@
 }
 .sidebarMenu__email {
 	font-size: 14px;
+}
+
+.header__navigation_desktop {
+	display: none;
+}
+.header__navigation_mobile {
+	display: block;
+}
+
+@media (min-width: 1200px) {
+	.header__navigation_desktop {
+		display: block;
+	}
+	.header__navigation_mobile {
+		display: none;
+	}
 }

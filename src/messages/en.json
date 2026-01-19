@@ -17,13 +17,19 @@
 		"contacts": "Contacts"
 	},
 	"ConsultationForm": {
+		"sms": "SMS",
+		"call": "Сall",
 		"services": ["Design", "Development", "Marketing"],
+		"placeholders": {
+			"name": "Your name",
+			"phone": "+1 234 567 8900"
+		},
 		"errors": {
 			"name": "Name must be at least 2 characters long",
 			"phone": "Enter correct phone number",
-			"services": "Choose an option from the list",
 			"contactMethod": "Choose an option from the list"
-		}
+		},
+		"submitButton": "Send Request"
 	},
 	"alts": {
 		"burgerMenu": "Click here to open a menu",
