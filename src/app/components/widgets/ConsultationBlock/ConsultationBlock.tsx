@@ -6,9 +6,10 @@ export function ConsultationBlock({
 	keyPoints,
 	title,
 	keywords,
+	id,
 }: ConsultationBlockProps) {
 	return (
-		<section className={styles.consultationblock}>
+		<section className={styles.consultationblock} id={id}>
 			<div className={styles.content__container}>
 				<div className={styles.consultationblock__info}>
 					<h4 className={styles.title}>

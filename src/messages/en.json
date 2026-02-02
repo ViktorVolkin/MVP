@@ -4,7 +4,14 @@
 		"aboutUs": "About Us",
 		"services": "Services",
 		"contacts": "Contacts",
-		"makeCall": "Make a call"
+		"makeCall": "Make a call",
+		"servicesList": {
+			"marketing": "Marketing",
+			"bots": "Chatbots & Automation",
+			"businessProcesses": "Business Process Optimization",
+			"sites": "Web Development",
+			"marketingStrategy": "Marketing Strategy Development"
+		}
 	},
 	"footer": {
 		"companyDescription": "Maximum amount of characters without breaking our styles are somewhat near this so:",

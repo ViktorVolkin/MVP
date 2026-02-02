@@ -1,38 +1,39 @@
 import { IntroductionBlock } from "../../widgets/IntroductionBlock"
 import { ServicesBlock } from "../../widgets/ServicesBlock"
-import { MainPageProps } from "./MainPage.types"
 import { AboutUsBlock } from "../../widgets/AboutUsBlock"
 import { StepsOfWork } from "../../widgets/StepsOfWork"
 import { ConsultationBlock } from "../../widgets/ConsultationBlock"
-export function MainPage({
-	introduction,
-	services,
-	AboutUs,
-	stepsOfWork,
-	consultationBlock,
-}: MainPageProps) {
+import { mainPageContent } from "../../lib/constants"
+
+export function MainPage() {
 	return (
 		<>
 			<IntroductionBlock
-				aboutCompanyBlock={introduction.aboutCompanyBlock}
-				previewCards={introduction.previewCards}
-				title={introduction.title}
+				aboutCompanyBlock={
+					mainPageContent.introduction.aboutCompanyBlock
+				}
+				previewCards={mainPageContent.introduction.previewCards}
+				title={mainPageContent.introduction.title}
 			/>
 			<ServicesBlock
-				titleKeywords={services.titleKeywords}
-				services={services.services}
-				title={services.title}
+				titleKeywords={mainPageContent.services.titleKeywords}
+				services={mainPageContent.services.services}
+				title={mainPageContent.services.title}
 			/>
 			<AboutUsBlock
-				title={AboutUs.title}
-				items={AboutUs.items}
-				discussProjectBtn={AboutUs.discussProjectBtn}
+				title={mainPageContent.aboutUs.title}
+				items={mainPageContent.aboutUs.items}
+				discussProjectBtn={mainPageContent.aboutUs.discussProjectBtn}
 			/>
-			<StepsOfWork title={stepsOfWork.title} steps={stepsOfWork.steps} />
+			<StepsOfWork
+				title={mainPageContent.stepsOfWork.title}
+				steps={mainPageContent.stepsOfWork.steps}
+			/>
 			<ConsultationBlock
-				keyPoints={consultationBlock.keyPoints}
-				title={consultationBlock.title}
-				keywords={consultationBlock.keywords}
+				keyPoints={mainPageContent.consultationBlock.keyPoints}
+				title={mainPageContent.consultationBlock.title}
+				keywords={mainPageContent.consultationBlock.keywords}
+				id={mainPageContent.aboutUs.discussProjectBtn.anchor}
 			/>
 		</>
 	)

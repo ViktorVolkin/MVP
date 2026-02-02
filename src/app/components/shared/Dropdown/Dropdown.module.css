@@ -112,7 +112,6 @@
 	&:hover {
 		transform: scale(1.05);
 		transition: transform 1s cubic-bezier(0.25, 1.25, 0.5, 1);
-		background-color: #f8f8f8;
 	}
 }
 

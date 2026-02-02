@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation"
 import Image from "next/image"
 import Logo from "@/../public/logo.png"
 import BurgerMenu from "@/../public/burgerMenu.svg"
-import { Activity, useState } from "react"
+import { useState } from "react"
 import { useLocale, useTranslations } from "next-intl"
 import Dropdown from "../../shared/Dropdown"
 import { routing } from "@/i18n/routing"
@@ -13,17 +13,19 @@ import unitedKingdomFlag from "@/../public/UKflag.png"
 import SidebarMenu from "../SidebarMenu"
 import TelegramIcon from "@/../public/telegram.svg"
 import { useSwitchLanguage } from "../../lib/hooks"
-// на 1200 px и выше показываем десктопную версию
+
 export function Header({
 	listLinks,
 	phoneButton,
 	telegram,
 	email,
+	services,
 }: {
 	listLinks: { text: string; leadsTo: string }[]
 	phoneButton: { phoneNumber: string; makeCall: string }
 	telegram: string
 	email: string
+	services: { text: string; pageLink: string }[]
 }) {
 	const [popupOpen, setPopupOpen] = useState<boolean>(false)
 	const t = useTranslations()
@@ -52,6 +54,23 @@ export function Header({
 									<Link href={item.leadsTo}>{item.text}</Link>
 								</li>
 							))}
+
+							<li>
+								<Dropdown
+									sideToPopUp="right"
+									buttonText={t("header.services")}
+								>
+									{services.map((item) => (
+										<Link
+											className={styles.services__link}
+											href={item.pageLink}
+											key={`${item.pageLink}-${item.text}`}
+										>
+											{item.text}
+										</Link>
+									))}
+								</Dropdown>
+							</li>
 							<li>
 								<Dropdown
 									sideToPopUp="right"
@@ -68,14 +87,14 @@ export function Header({
 										{routing.locales
 											.filter(
 												(lang) =>
-													lang !== currentLanguage
+													lang !== currentLanguage,
 											)
 											.map((item) => (
 												<button
 													key={item}
 													onClick={() =>
 														handleLanguageChange(
-															item
+															item,
 														)
 													}
 												>

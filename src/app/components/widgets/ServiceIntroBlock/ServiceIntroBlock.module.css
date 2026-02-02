@@ -1,0 +1,54 @@
+.intro {
+	display: flex;
+	gap: 110px;
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0 25px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	width: 50%;
+}
+
+.title {
+	font-size: 3rem;
+	font-weight: 600;
+}
+.text {
+	font-size: 1.5rem;
+}
+
+.image__container {
+	width: 50%;
+	max-width: 50%;
+	position: relative;
+	height: 500px;
+	border-radius: 12px;
+	* {
+		border-radius: 12px;
+	}
+}
+
+@media (max-width: 1000px) {
+	.intro {
+		flex-direction: column;
+		gap: 40px;
+		padding: 0 25px;
+	}
+
+	.info {
+		gap: 40px;
+		width: 100%;
+	}
+
+	.title {
+		font-size: 3rem;
+		font-weight: 600;
+	}
+	.text {
+		font-size: 1.5rem;
+	}
+}

@@ -4,7 +4,14 @@
 		"aboutUs": "О нас",
 		"services": "Услуги",
 		"contacts": "Контакты",
-		"makeCall": "Сделать звонок"
+		"makeCall": "Сделать звонок",
+		"servicesList": {
+			"marketing": "Маркетинг",
+			"bots": "Чат-боты и автоматизация",
+			"businessProcesses": "Оптимизация бизнес-процессов",
+			"sites": "Веб-разработка",
+			"marketingStrategy": "Разработка маркетинговой стратегии"
+		}
 	},
 	"footer": {
 		"companyDescription": "Наша компания очень крутая",
