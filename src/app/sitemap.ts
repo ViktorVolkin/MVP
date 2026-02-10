@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next"
-import { SERVICES } from "./components/lib/constants"
+import { SERVICES } from "./components/lib/constants/constants"
 
 export default function sitemap(): MetadataRoute.Sitemap {
 	const baseUrl = process.env.PUBLIC_SITE_URL || "https://your-site.com"

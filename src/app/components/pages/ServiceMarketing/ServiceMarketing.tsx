@@ -4,309 +4,94 @@ import image from "@/../public/фон10.png"
 import { ServiceStepsBlock } from "../../widgets/ServiceStepsBlock"
 import styles from "./ServiceMarketing.module.css"
 import { ConsultationBlock } from "../../widgets/ConsultationBlock"
-import { ServiceMarketingPageProps } from "./ServiceMarketing.types"
-import { mainPageContent } from "../../lib/constants"
+import { mainPageContent } from "../../lib/constants/constants"
 import { ServiceTariffBlock } from "../../widgets/ServiceTariffBlock"
-export function ServiceMarketing({}: ServiceMarketingPageProps) {
-	const t = getTranslations("ServiceMarketingPage")
-	return (
-		<>
-			<ServiceIntroBlock
-				title={"SMM. Продвижение бренда в социальных сетях"}
-				text={
-					"SMM (social media marketing) - продвижение вашего бренда в социальных сетях. Это привлечение в ваши аккаунты и сообщества новых подписчиков и их «превращение» в реальных клиентов."
+import { ServiceMarketingPageContent } from "../../lib/constants/serviceMarketingPage"
+
+export async function ServiceMarketing() {
+	const t = await getTranslations("ServiceMarketingPage")
+
+	const stepsData = t.raw("steps.items")
+	const steps = Object.keys(stepsData).map((key) => ({
+		title: t(`steps.items.${key}.title`),
+		text: t.raw(`steps.items.${key}.text`),
+	}))
+
+	const tariffCards = ServiceMarketingPageContent.tariffs.cards.map(
+		(card) => ({
+			tariffName: t(card.tariffName.replace("ServiceMarketingPage.", "")),
+			price: {
+				text: t(card.price.text.replace("ServiceMarketingPage.", "")),
+				color: card.price.color,
+			},
+			previewText: t(
+				card.previewText.replace("ServiceMarketingPage.", ""),
+			),
+			list: card.list.map((row) => {
+				const title = {
+					title: t(row.titleKey.replace("ServiceMarketingPage.", "")),
 				}
+
+				if (row.itemsKey) {
+					return {
+						title,
+						listType: row.listType as "ul" | "ol",
+						items: t
+							.raw(
+								row.itemsKey.replace(
+									"ServiceMarketingPage.",
+									"",
+								),
+							)
+							.map((item: string) => ({ text: item })),
+					}
+				}
+
+				return {
+					title,
+					text: {
+						text: t(
+							row.textKey!.replace("ServiceMarketingPage.", ""),
+						),
+						keywords: t.raw(
+							row.keywordsKey!.replace(
+								"ServiceMarketingPage.",
+								"",
+							),
+						),
+					},
+				}
+			}),
+		}),
+	)
+
+	return (
+		<div className={styles.wrapper}>
+			<ServiceIntroBlock
+				title={t("intro.title")}
+				text={t("intro.description")}
 				image={image}
 				className={styles.intro}
-			></ServiceIntroBlock>
-			<ServiceStepsBlock
-				title={"Схема работы"}
-				className={styles.steps}
-				steps={[
-					{
-						text: [
-							"Знакомимся с вашим брендом и/или продуктом",
-							"Анализируем сайт, группы и корпоративные аккаунты в соцсетях",
-							"Изучаем особенности целевой аудитории и конкурентов",
-						],
-						title: "Определяемся с исходными данными",
-					},
-					{
-						text: [
-							"Дорабатываем ваш текущий сайт (при необходимости)",
-							"Подбираем «упаковку»: промопосты, объявления, презентации",
-						],
-						title: "Создаем предпосылки успеха",
-					},
-					{
-						text: [
-							"Определяем новые каналы продвижения бренда...",
-							".. и укрепляем уже использующиеся",
-						],
-						title: "Выбираем стратегию",
-					},
-					{
-						text: [
-							"Подключаем сервисы Яндекс.Метрика и Google Analytics",
-							"Настраиваем коллтрекинг Callibri - для учета звонков",
-							"Изучаем особенности целевой аудитории и конкурентов",
-						],
-						title: "Настраиваем аналитику",
-					},
-					{
-						text: [
-							"Увеличиваем входящий трафик",
-							"Сокращаем расходы",
-							"Снижаем стоимость заявки",
-						],
-						title: "Оптимизируем кампанию",
-					},
-					{
-						text: [
-							"Формируем отчетность по: Затратам",
-							"Количеству заявок",
-							"Конверсиям",
-						],
-						title: "Рассказываем об успехах",
-					},
-				]}
-			></ServiceStepsBlock>
-			<ServiceTariffBlock
-				title="Выберите свой тариф"
-				description="SMM - это всегда комплекс услуг. И стоимость СММ-продвижения зависит от того, какие
-мероприятия входят в этот комплекс. В зависимости от того, какой результат вам нужен,
-вы можете выбрать один из трех тарифов:"
-				cards={[
-					{
-						list: [
-							{
-								title: { title: "Для кого:" },
-								text: {
-									text: "Этот пакет подходит для поддержания вовлечённости собранной аудитории в социальных сетях. Для привлечения новых подписчиков и увеличения охвата, за счет вовлекающего контента. Основная наша задача - создавать уникальный и привлекательный контент для ваших подписчиков, использовать рекламу для увеличения охвата.",
-									keywords: [
-										"Этот",
-										"пакет",
-										"подходит",
-										"для",
-										"поддержания",
-										"вовлечённости",
-										"собранной",
-										"аудитории",
-										"в",
-										"социальных",
-										"сетях.",
-									],
-								},
-							},
-
-							{
-								title: {
-									title: "Минимальный рекламный бюджет:",
-								},
-								text: {
-									text: "0-5 тыс.р. (бюджет оплачивается отдельно)",
-									keywords: ["0-5", "тыс.р."],
-								},
-							},
-							{
-								title: {
-									title: "Что входит:",
-								},
-								listType: "ul",
-								items: [
-									{ text: "Создание и настройка сообщества" },
-									{
-										text: "Анализ конкуренции и бренда в социальных сетях",
-									},
-									{
-										text: "Дизайн оформление аккаунта. Аватар и обложка",
-									},
-									{
-										text: "Размещение товаров, услуг фотоматериалов, до 5 товаров",
-									},
-									{ text: "Персональный менеджмент" },
-									{ text: "Ежемесячный отчет" },
-								],
-							},
-							{
-								listType: "ol",
-								items: [
-									{
-										text: "Контент",
-										subArray: {
-											items: [
-												{
-													text: "Анализ предпочтений аудитории",
-												},
-												{
-													text: "Разработка SMM-стратегии",
-												},
-												{
-													text: "Контент-маркетинг (10-20 публикаций в месяц в ленту и 5-10 Stories)",
-												},
-												{
-													text: "Разработка конкурсных и интерактивных механик (1 в месяц)",
-												},
-												{
-													text: "Адаптация графического материала под специфику каждой социальной сети",
-												},
-											],
-											listType: "ul",
-										},
-									},
-
-									{
-										text: "Таргетированная реклама (бюджет оплачивается отдельно)",
-										subArray: {
-											items: [
-												{
-													text: "Анализ целевой аудитории",
-												},
-												{
-													text: "Настройка рекламы с",
-													subArray: {
-														items: [
-															{
-																text: "охватной стратегией",
-															},
-															{
-																text: "привлечением новых подписчиков",
-															},
-														],
-														listType: "ul",
-													},
-												},
-											],
-											listType: "ul",
-										},
-									},
-								],
-							},
-						],
-						previewText:
-							"Сохранение уже достигнутых результатов, поддержка вовлеченности и активности существующей аудитории \nРекламная кампания направлена на продвижение постов, опубликованных в аккаунте.",
-						price: { text: "от 30 000Р  в месяц", color: "red" },
-						tariffName: "Базовый",
-					},
-					{
-						list: [
-							{
-								title: { title: "Для кого:" },
-								text: {
-									text: "Этот пакет подходит для поддержания вовлечённости собранной аудитории в социальных сетях. Для привлечения новых подписчиков и увеличения охвата, за счет вовлекающего контента. Основная наша задача - создавать уникальный и привлекательный контент для ваших подписчиков, использовать рекламу для увеличения охвата.",
-									keywords: [
-										"Этот",
-										"пакет",
-										"подходит",
-										"для",
-										"поддержания",
-										"вовлечённости",
-										"собранной",
-										"аудитории",
-										"в",
-										"социальных",
-										"сетях.",
-									],
-								},
-							},
-
-							{
-								title: {
-									title: "Минимальный рекламный бюджет:",
-								},
-								text: {
-									text: "0-5 тыс.р. (бюджет оплачивается отдельно)",
-									keywords: ["0-5", "тыс.р."],
-								},
-							},
-							{
-								title: {
-									title: "Что входит:",
-								},
-								listType: "ul",
-								items: [
-									{ text: "Создание и настройка сообщества" },
-									{
-										text: "Анализ конкуренции и бренда в социальных сетях",
-									},
-									{
-										text: "Дизайн оформление аккаунта. Аватар и обложка",
-									},
-									{
-										text: "Размещение товаров, услуг фотоматериалов, до 5 товаров",
-									},
-									{ text: "Персональный менеджмент" },
-									{ text: "Ежемесячный отчет" },
-								],
-							},
-							{
-								listType: "ol",
-								items: [
-									{
-										text: "Контент",
-										subArray: {
-											items: [
-												{
-													text: "Анализ предпочтений аудитории",
-												},
-												{
-													text: "Разработка SMM-стратегии",
-												},
-												{
-													text: "Контент-маркетинг (10-20 публикаций в месяц в ленту и 5-10 Stories)",
-												},
-												{
-													text: "Разработка конкурсных и интерактивных механик (1 в месяц)",
-												},
-												{
-													text: "Адаптация графического материала под специфику каждой социальной сети",
-												},
-											],
-											listType: "ul",
-										},
-									},
-
-									{
-										text: "Таргетированная реклама (бюджет оплачивается отдельно)",
-										subArray: {
-											items: [
-												{
-													text: "Анализ целевой аудитории",
-												},
-												{
-													text: "Настройка рекламы с",
-													subArray: {
-														items: [
-															{
-																text: "охватной стратегией",
-															},
-															{
-																text: "привлечением новых подписчиков",
-															},
-														],
-														listType: "ul",
-													},
-												},
-											],
-											listType: "ul",
-										},
-									},
-								],
-							},
-						],
-						previewText:
-							"Сохранение уже достигнутых результатов, поддержка вовлеченности и активности существующей аудитории \nРекламная кампания направлена на продвижение постов, опубликованных в аккаунте.",
-						price: { text: "от 30 000Р  в месяц", color: "red" },
-						tariffName: "Базовый",
-					},
-				]}
 			/>
+
+			<ServiceStepsBlock
+				title={t("steps.title")}
+				className={styles.steps}
+				steps={steps}
+			/>
+
+			<ServiceTariffBlock
+				title={t("tariffs.title")}
+				description={t("tariffs.description")}
+				cards={tariffCards}
+			/>
+
 			<ConsultationBlock
 				keyPoints={mainPageContent.consultationBlock.keyPoints}
 				title={mainPageContent.consultationBlock.title}
 				keywords={mainPageContent.consultationBlock.keywords}
 				id={mainPageContent.aboutUs.discussProjectBtn.anchor}
 			/>
-		</>
+		</div>
 	)
 }

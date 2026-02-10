@@ -1,10 +1,10 @@
 {
 	"header": {
-		"main": "Main",
+		"main": "Home",
 		"aboutUs": "About Us",
 		"services": "Services",
 		"contacts": "Contacts",
-		"makeCall": "Make a call",
+		"makeCall": "Make a Call",
 		"servicesList": {
 			"marketing": "Marketing",
 			"bots": "Chatbots & Automation",
@@ -14,32 +14,270 @@
 		}
 	},
 	"footer": {
-		"companyDescription": "Maximum amount of characters without breaking our styles are somewhat near this so:",
-		"socials": "Our socials",
+		"companyDescription": "Our company is truly outstanding",
+		"socials": "Follow us",
 		"navigation": "Navigation",
 		"aboutUs": "About Us",
-		"aboutCompany": "About the Company",
+		"aboutCompany": "About Company",
 		"careers": "Careers",
 		"blog": "Blog",
 		"contacts": "Contacts"
 	},
 	"ConsultationForm": {
 		"sms": "SMS",
-		"call": "Сall",
+		"call": "Call",
 		"services": ["Design", "Development", "Marketing"],
 		"placeholders": {
 			"name": "Your name",
-			"phone": "+1 234 567 8900"
+			"phone": "+1 (999) 000-00-00"
 		},
 		"errors": {
 			"name": "Name must be at least 2 characters long",
-			"phone": "Enter correct phone number",
-			"contactMethod": "Choose an option from the list"
+			"phone": "Please enter a valid phone number",
+			"contactMethod": "Please select an option from the list"
 		},
-		"submitButton": "Send Request"
+		"submitButton": "Submit Request"
 	},
 	"alts": {
-		"burgerMenu": "Click here to open a menu",
-		"telegram": "Link to our Telegram"
+		"telegram": "Link to our Telegram",
+		"burgerMenu": "Click here to open the menu",
+		"services": { "intro": "WebLeadCraft service preview photo" }
+	},
+	"ServiceMarketingPage": {
+		"metadata": {
+			"description": "Professional SMM: from strategy to first sales. We will select a plan that fits your budget.",
+			"title": "Social Media Promotion (SMM) | WebLeadCraft",
+			"ogAlt": "Marketing services preview by WebLeadCraft"
+		},
+		"intro": {
+			"title": "SMM. Brand Promotion in Social Media",
+			"description": "SMM (Social Media Marketing) is the promotion of your brand across social networks. It involves attracting new followers to your accounts and communities and 'converting' them into actual customers."
+		},
+		"steps": {
+			"title": "Workflow",
+			"items": {
+				"0": {
+					"title": "Defining Baseline Data",
+					"text": [
+						"Getting to know your brand and/or product",
+						"Analyzing your website, groups, and corporate social media accounts",
+						"Studying target audience characteristics and competitors"
+					]
+				},
+				"1": {
+					"title": "Creating Preconditions for Success",
+					"text": [
+						"Improving your current website (if necessary)",
+						"Selecting the 'packaging': promo posts, ads, presentations"
+					]
+				},
+				"2": {
+					"title": "Choosing a Strategy",
+					"text": [
+						"Identifying new brand promotion channels...",
+						"...and strengthening the ones already in use"
+					]
+				},
+				"3": {
+					"title": "Setting Up Analytics",
+					"text": [
+						"Connecting Yandex.Metrica and Google Analytics",
+						"Setting up call tracking to monitor phone leads",
+						"Studying target audience behavior and competition"
+					]
+				},
+				"4": {
+					"title": "Optimizing the Campaign",
+					"text": [
+						"Increasing incoming traffic",
+						"Reducing costs",
+						"Lowering the cost per lead (CPL)"
+					]
+				},
+				"5": {
+					"title": "Reporting Success",
+					"text": [
+						"Generating reports on: Expenses",
+						"Number of leads",
+						"Conversions"
+					]
+				}
+			}
+		},
+		"tariffs": {
+			"title": "Choose Your Plan",
+			"description": "SMM is always a comprehensive set of services. The cost of SMM promotion depends on the specific activities included. Depending on your goals, you can choose one of three plans:",
+			"labels": {
+				"forWhom": "Target Audience:",
+				"budget": "Minimum Ad Budget:",
+				"included": "What's Included:"
+			},
+			"items": {
+				"base": {
+					"name": "Base",
+					"price": "from 30,000₽ per month",
+					"previewText": "Maintaining current results, supporting engagement, and activity of the existing audience. \nAd campaigns are focused on boosting posts published in the account.",
+					"forWhomText": "This package is suitable for maintaining the engagement of an already established social media audience. It aims to attract new followers and increase reach through engaging content. Our main task is to create unique, attractive content for your followers and use ads to boost visibility.",
+					"forWhomKeywords": [
+						"This",
+						"package",
+						"is",
+						"suitable",
+						"for",
+						"maintaining",
+						"engagement",
+						"of",
+						"established",
+						"social",
+						"media",
+						"audience."
+					],
+					"budgetText": "0-5k ₽ (ad budget paid separately)",
+					"budgetKeywords": ["0-5k", "RUB"],
+					"includedList": [
+						"Community creation and setup",
+						"Competitor and brand analysis in social media",
+						"Account visual design: Avatar and Cover",
+						"Listing products, services, and photos (up to 5 items)",
+						"Personal management",
+						"Monthly reporting"
+					]
+				},
+				"standard": {
+					"name": "Standard",
+					"price": "from 55,000₽ per month",
+					"previewText": "Comprehensive promotion with a focus on audience growth and active sales through content.",
+					"forWhomText": "Suitable for small and medium-sized businesses needing regular leads and active community growth.",
+					"forWhomKeywords": ["small", "medium", "leads"],
+					"budgetText": "15-30k ₽",
+					"budgetKeywords": ["15-30k"],
+					"includedList": [
+						"Everything in the Base plan",
+						"Creation of unique photo/video content",
+						"Influencer marketing",
+						"Setup and management of newsletters/messaging"
+					]
+				},
+				"premium": {
+					"name": "Premium",
+					"price": "from 90,000₽ per month",
+					"previewText": "Maximum reach and brand image development. Full reputation and traffic management.",
+					"forWhomText": "For large companies and brands aiming for niche dominance and large-scale advertising campaigns.",
+					"forWhomKeywords": ["large", "dominance", "large-scale"],
+					"budgetText": "from 50k ₽",
+					"budgetKeywords": ["50k"],
+					"includedList": [
+						"Everything in the Standard plan",
+						"Reels filming and professional production",
+						"24/7 Community management",
+						"SERM (Reputation management)",
+						"Weekly in-depth reports"
+					]
+				}
+			}
+		}
+	},
+	"MainPage": {
+		"introduction": {
+			"title": "Website development and promotion with guaranteed results",
+			"previewCards": [
+				{
+					"title": "Development",
+					"subtitle": {
+						"casualText": "High-quality website for",
+						"important": "sales growth"
+					},
+					"text": "We create websites that help businesses succeed and grow online.",
+					"button": {
+						"text": "Learn more"
+					}
+				},
+				{
+					"title": "Development",
+					"subtitle": {
+						"casualText": "Professional website for",
+						"important": "better results"
+					},
+					"text": "Our websites are designed to solve business challenges effectively.",
+					"button": {
+						"text": "Learn more"
+					}
+				},
+				{
+					"title": "Development",
+					"subtitle": {
+						"casualText": "Modern website for",
+						"important": "business growth"
+					},
+					"text": "We deliver websites that help companies reach their goals online.",
+					"button": {
+						"text": "Learn more"
+					}
+				}
+			],
+			"aboutCompanyBlock": {
+				"title": "WebCanape — a digital agency with clear guarantees",
+				"text": "We provide transparent guarantees and focus on results and customer service."
+			}
+		},
+
+		"services": {
+			"title": "Tasks we can help you with",
+			"titleKeywords": ["we", "help", "you"],
+			"items": [
+				{
+					"title": "Increase profit",
+					"text": "We analyze your business and create strategies to generate leads."
+				},
+				{
+					"title": "Increase brand awareness",
+					"text": "We help your brand become more recognized and trusted."
+				},
+				{
+					"title": "Boost inbound customer flow",
+					"text": "We guide your potential clients to take action using marketing tools."
+				}
+			]
+		},
+
+		"aboutUs": {
+			"title": {
+				"text": "Driving leads in a performance format",
+				"keywords": ["driving leads"]
+			},
+			"items": [
+				{ "title": "6 years", "text": "on the market" },
+				{
+					"title": "Millions earned",
+					"text": "by our clients with us"
+				},
+				{ "title": "30+", "text": "active projects running" }
+			],
+			"discussProjectBtn": {
+				"text": "Discuss the project"
+			}
+		},
+
+		"stepsOfWork": {
+			"title": "Stages of work",
+			"steps": [
+				"Complete a brief to define goals and responsibilities",
+				"Audit and create a promotion strategy with a timeline",
+				"Set up platforms and communication channels, manage content",
+				"Launch advertising campaigns",
+				"Track results and adjust strategy"
+			]
+		},
+
+		"consultationBlock": {
+			"title": "Leave a request for a business consultation",
+			"keywords": ["Leave", "a request"],
+			"keyPoints": [
+				"Consultation lasts 15–40 minutes",
+				"We show examples of client results and ads",
+				"We explain the general strategy",
+				"You get a recording of the consultation"
+			]
+		}
 	}
 }

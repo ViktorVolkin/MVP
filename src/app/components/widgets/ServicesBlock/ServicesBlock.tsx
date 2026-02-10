@@ -18,8 +18,8 @@ export function ServicesBlock({
 				/>
 			</h3>
 			<ul className={styles.services__list}>
-				{services.map((item) => (
-					<li className={styles.services__list_item} key={item.title}>
+				{services.map((item, idx) => (
+					<li className={styles.services__list_item} key={idx}>
 						<h4 className={styles.list__item_title}>
 							{item.title}
 						</h4>

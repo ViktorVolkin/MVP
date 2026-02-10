@@ -1,7 +1,6 @@
 .intro {
 	display: flex;
 	gap: 110px;
-	max-width: 1600px;
 	margin: 0 auto;
 	padding: 0 25px;
 }
@@ -50,5 +49,9 @@
 	}
 	.text {
 		font-size: 1.5rem;
+	}
+	.image__container {
+		max-width: 100%;
+		width: 100%;
 	}
 }

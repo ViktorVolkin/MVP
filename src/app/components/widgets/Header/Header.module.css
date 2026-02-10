@@ -7,10 +7,12 @@
 	background-color: #fff;
 	border-bottom-left-radius: 24px;
 	border-bottom-right-radius: 24px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
+
 .header__wrapper {
-	height: 110px;
-	padding: 20px 12px;
+	height: 80px;
+	padding: 15px 20px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
@@ -80,20 +82,26 @@
 }
 
 .logo {
-	object-fit: cover;
+	object-fit: contain;
+	align-self: center;
+	justify-self: center;
+	max-height: 100%;
 }
 .popup {
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
+	height: 32px;
 }
 .phone__buttons {
 	display: flex;
 	gap: 75px;
+	align-items: center;
 }
 .sidebarMenu__wrapper {
 	display: flex;
 	flex-direction: column;
+	width: max-content;
 	gap: 32px;
 }
 .sidebarMenu__contacts {
@@ -103,25 +111,29 @@
 }
 .sidebarMenu__list {
 	display: flex;
+	padding-left: 0;
 	flex-direction: column;
 	list-style: none;
 	height: 100%;
 	gap: 64px;
 }
 .sidebarMenu__phone_number {
-	font-size: 24px;
+	font-size: clamp(20px, 4vw, 24px);
 }
 .sidebarMenu__email {
-	font-size: 14px;
+	font-size: clamp(14px, 3vw, 16px);
 }
 
 .header__navigation_desktop {
 	display: none;
 }
 .header__navigation_mobile {
-	display: block;
+	display: flex;
+	align-items: center;
 }
-
+.sidebarMenu__list_item {
+	font-size: clamp(14px, 3vw, 16px);
+}
 @media (min-width: 1200px) {
 	.header__navigation_desktop {
 		display: block;

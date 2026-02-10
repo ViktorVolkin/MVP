@@ -41,7 +41,6 @@
 	display: flex;
 	flex-direction: column;
 	counter-increment: step-num;
-
 	&::before {
 		content: "";
 		position: absolute;
@@ -86,8 +85,10 @@
 }
 
 .list_title {
-	font-size: 1.8rem;
-	font-weight: bold;
+	font-size: clamp(20px, 1rem + 1vw, 30px);
+	hyphens: auto;
+	word-break: keep-all;
+	font-weight: 650;
 	margin-bottom: 15px;
 }
 
@@ -100,4 +101,32 @@
 	position: relative;
 	margin-bottom: 10px;
 	font-size: 1.15rem;
+}
+
+@media (max-width: 768px) {
+	.steps_list {
+		grid-template-columns: 1fr;
+
+		&::after {
+			display: none;
+		}
+	}
+
+	.steps_list_title {
+		padding-left: 80px;
+		padding-right: 20px;
+		&::before {
+			display: none;
+		}
+
+		&::after {
+			left: 10px;
+			top: 30px;
+		}
+
+		border-bottom: 1px dashed #ccc;
+		&:last-child {
+			border-bottom: none;
+		}
+	}
 }

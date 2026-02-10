@@ -6,13 +6,13 @@
 	border-radius: 30px;
 	place-items: center;
 	padding-top: 50px;
-	height: 1100px;
+	min-height: 1100px;
 }
 .previewBlock__image {
 	position: absolute;
 	inset: 0;
 	object-fit: cover;
-	z-index: -5;
+	z-index: -1;
 	border-radius: 30px;
 }
 
@@ -26,7 +26,8 @@
 .cards__container {
 	margin-top: 150px;
 	width: 100%;
-	place-items: center;
+	align-items: center;
+	justify-content: center;
 	display: flex;
 	max-width: 1200px;
 	gap: 24px;

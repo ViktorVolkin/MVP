@@ -9,7 +9,6 @@
 
 .dropdown__button {
 	width: 100%;
-	font-size: 12px;
 	display: flex;
 	gap: 6px;
 	align-items: center;
@@ -18,6 +17,7 @@
 	border: none;
 	position: relative;
 	z-index: 2;
+	font-size: clamp(12px, 3vw, 16px);
 }
 
 .dropdown__icon {
@@ -137,13 +137,11 @@
 
 @media (max-width: 768px) {
 	.dropdown__button {
-		font-size: 16px;
 		gap: 6px;
 	}
 }
 @media (min-width: 1441px) {
 	.dropdown__button {
-		font-size: 16px;
 		gap: 8px;
 	}
 }

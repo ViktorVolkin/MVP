@@ -14,7 +14,7 @@
 	margin: 0 auto;
 }
 .title {
-	font-size: 60px;
+	font-size: clamp(30px, 90% + 3vw, 60px);
 	width: 90%;
 	margin: 0 auto 100px auto;
 }
@@ -26,6 +26,7 @@
 	justify-content: space-between;
 	gap: 24px;
 	margin-bottom: 70px;
+	padding: 0;
 }
 
 .about_us__list_item {
@@ -62,14 +63,12 @@
 }
 
 @media (max-width: 768px) {
-	.title {
-		font-size: 28px;
-	}
 	.about_us__list {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 64px;
+		padding: 0;
 	}
 
 	.about_us__list_item {

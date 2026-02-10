@@ -1,19 +1,14 @@
 import { getTranslations } from "next-intl/server"
-import { SERVICES } from "@/app/components/lib/constants"
 
 const siteUrl = process.env.PUBLIC_SITE_URL ?? ""
 
-export async function generateMetadata({
-	params,
-}: {
-	params: Promise<{ locale: string; serviceId?: string }>
-}) {
-	const { locale } = await params
-	const t = await getTranslations({ locale })
+export async function generateMetadata() {
+	const t = await getTranslations("ServiceMarketingPage")
 
 	return {
 		description: t("metadata.description"),
 		metadataBase: new URL(siteUrl),
+
 		icons: {
 			icon: "/favicon.ico",
 		},
@@ -51,7 +46,7 @@ export default async function ServicesLayout({
 		"@context": "https://schema.org",
 		"@type": "Service",
 		name: t("header.services"),
-		description: t("metadata.description"),
+		description: t("ServiceMarketingPage.metadata.description"),
 		provider: {
 			"@type": "Organization",
 			name: "WebLeadCraft",

@@ -16,6 +16,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 100px;
+	padding: 0;
 }
 
 .steps__list_item {
@@ -55,7 +56,7 @@
 
 .list__item_text {
 	font-weight: 650;
-	font-size: 20px;
+	font-size: clamp(14px, 1rem + 2vw, 20px);
 	align-self: center;
 }
 

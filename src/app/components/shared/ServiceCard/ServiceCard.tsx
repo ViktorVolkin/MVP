@@ -1,8 +1,10 @@
 "use client"
 import styles from "./ServiceCard.module.css"
 import { ServiceCardProps, ListContainer, ListItem } from "./ServiceCard.types"
-import Highlighter from "react-highlight-words"
-import { useState, useRef } from "react"
+import Highlighter, { Chunk, FindChunks } from "react-highlight-words"
+import { useState } from "react"
+import { findWholeWordChunks } from "../../lib/utils/findChunks"
+import clsx from "clsx"
 
 export function ServiceCard({
 	list,
@@ -11,7 +13,6 @@ export function ServiceCard({
 	tariffName,
 }: ServiceCardProps) {
 	const [isOpened, setOpened] = useState(false)
-
 	const renderList = (item: ListContainer | ListItem) => {
 		const isListItem = "text" in item
 		const ListTag = !isListItem ? item.listType : "ul"
@@ -25,6 +26,7 @@ export function ServiceCard({
 							highlightClassName={
 								styles.list__item_title_highlight
 							}
+							findChunks={findWholeWordChunks}
 						/>
 					</span>
 				)}
@@ -34,6 +36,7 @@ export function ServiceCard({
 						searchWords={item.text.keywords ?? []}
 						textToHighlight={item.text.text}
 						highlightClassName={styles.list__item_text_highlight}
+						findChunks={findWholeWordChunks}
 					/>
 				</p>
 			</div>
@@ -47,6 +50,7 @@ export function ServiceCard({
 							highlightClassName={
 								styles.list__item_title_highlight
 							}
+							findChunks={findWholeWordChunks}
 						/>
 					</span>
 				)}
@@ -62,6 +66,7 @@ export function ServiceCard({
 								highlightClassName={
 									styles.list__element_highlight
 								}
+								findChunks={findWholeWordChunks}
 							/>
 							{elem.subArray && renderList(elem.subArray)}
 						</li>
@@ -87,15 +92,17 @@ export function ServiceCard({
 					{isOpened ? "+" : "—"}
 				</span>
 			</div>
-			{isOpened && (
-				<div className={styles.card_list_container}>
-					{Array.isArray(list)
-						? list.map((item, i) => (
-								<div key={i}>{renderList(item)}</div>
-							))
-						: renderList(list)}
-				</div>
-			)}
+			<div
+				className={clsx(styles.card_list_container, {
+					[styles.visible]: isOpened,
+				})}
+			>
+				{Array.isArray(list)
+					? list.map((item, i) => (
+							<div key={i}>{renderList(item)}</div>
+						))
+					: renderList(list)}
+			</div>
 		</div>
 	)
 }

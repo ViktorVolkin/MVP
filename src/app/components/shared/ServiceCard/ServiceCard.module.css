@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	max-width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 	background-color: white;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -47,13 +48,19 @@
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
+	max-height: 0;
+	overflow: hidden;
+
+	transition:
+		max-height 0.5s ease-out,
+		opacity 0.5s ease-in,
+		padding-top 0.5s ease-out;
 }
 
-/* Стили для списков и вложенности */
-.list__wrapper {
-}
-
-.list {
+.visible {
+	opacity: 1;
+	max-height: 1000px;
+	padding-top: 20px;
 }
 
 .list__element {
@@ -63,16 +70,21 @@
 }
 
 .list__item_title {
+	font-size: 20px;
+	font-weight: 700;
 }
 
 .list__item_text {
 }
 
 .list__item_title_highlight {
+	color: red;
 }
 
 .list__item_text_highlight {
+	color: red;
 }
 
 .list__element_highlight {
+	color: red;
 }

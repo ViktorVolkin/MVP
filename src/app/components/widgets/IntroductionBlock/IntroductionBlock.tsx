@@ -18,11 +18,8 @@ export async function IntroductionBlock({
 			></Image>
 			<h1 className={styles.previewBlock__title}>{title}</h1>
 			<div className={styles.cards__container}>
-				{previewCards.map((item) => (
-					<PreviewCard
-						{...item}
-						key={`${item.title}-${item.subtitle.casualText}`}
-					/>
+				{previewCards.map((item, idx) => (
+					<PreviewCard {...item} key={idx} />
 				))}
 			</div>
 			<div className={styles.about_company}>

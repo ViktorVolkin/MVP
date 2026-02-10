@@ -1,6 +1,7 @@
-.intro {
-	margin-bottom: 150px;
-}
-.steps {
-	margin-bottom: 100px;
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 150px;
+	margin: 0 auto;
+	max-width: 1600px;
 }

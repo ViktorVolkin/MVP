@@ -22,8 +22,8 @@ export function ConsultationBlock({
 						/>
 					</h4>
 					<ul className={styles.list}>
-						{keyPoints.map((item) => (
-							<li key={item} className={styles.list_item}>
+						{keyPoints.map((item, idx) => (
+							<li key={idx} className={styles.list_item}>
 								{item}
 							</li>
 						))}

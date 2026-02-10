@@ -11,7 +11,7 @@ import {
 	FOOTER__SOCIALS,
 	NAVIGATION__BLOCKS,
 	SERVICES,
-} from "../components/lib/constants"
+} from "../components/lib/constants/constants"
 import { translateBlock } from "../components/lib/utils/translateBlock"
 import { Organization, WithContext, CreativeWork } from "schema-dts"
 
