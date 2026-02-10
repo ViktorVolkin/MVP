@@ -31,14 +31,23 @@ The project follows a modified modular pattern located in src/components:
 bash
 
 src/
+
 ├── app/             # File-based routing & layouts
+
 ├── components/      # Architecture layers
+
 │   ├── shared/      # UI Kit (Buttons, Inputs, Spinners)
+
 │   ├── entities/    # Business entities (Service cards, Team members)
+
 │   ├── features/    # User interactions & Server Actions (ContactForm)
+
 │   ├── widgets/     # Composition layers (Header, Hero, Footer)
+
 │   └── pages/       # High-level page compositions
+
 ├── lib/             # Core utilities & shared server logic
+
 └── assets/          # Global styles and static files
 
 🏁 Getting Started
