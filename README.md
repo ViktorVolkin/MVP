@@ -20,8 +20,6 @@ Framework: Next.js (App Router)
 
 Language: TypeScript
 
-Styling: Tailwind CSS
-
 Logic: React Server Actions
 
 📂 Modular Structure
