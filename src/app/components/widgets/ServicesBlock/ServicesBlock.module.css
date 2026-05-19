@@ -2,7 +2,13 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	background: rgb(230, 229, 229);
+	background: linear-gradient(
+		180deg,
+		#e0f2fe 0%,
+		#7dd3fc 40%,
+		#14668c 75%,
+		#2d3b6b 100%
+	);
 	padding: 180px 70px 70px 70px;
 }
 
@@ -14,7 +20,7 @@
 	margin-bottom: 32px;
 }
 .services__title_keyword {
-	color: rgb(32, 119, 255);
+	color: white;
 }
 
 .services__list {
@@ -51,7 +57,8 @@
 }
 
 .list__item_text {
-	max-width: 320px;
+	max-width: calc(70% + 30px);
+	min-width: 280px;
 	height: max-content;
 	position: relative;
 	z-index: 2;
@@ -67,7 +74,7 @@
 }
 @media (max-width: 768px) {
 	.services__container {
-		padding: 270px 50px 50px 50px;
+		padding: 270px 15px 50px 15px;
 	}
 	.services__list {
 		list-style: none;
@@ -83,7 +90,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
-		padding: 32px;
+		padding: 16px;
 		overflow: hidden;
 		justify-content: flex-end;
 	}
@@ -109,5 +116,7 @@
 		color: #fff;
 		margin: 0;
 		font-size: 0.8em;
+		max-width: 70%;
+		min-width: 320px;
 	}
 }

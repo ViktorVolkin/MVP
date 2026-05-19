@@ -1,16 +1,16 @@
-import TelegramIcon from "@/../public/telegram.svg"
-import FacebookIcon from "@/../public/facebook.svg"
-import InstagramIcon from "@/../public/instagram.svg"
-import VkIcon from "@/../public/vk.svg"
-import image1 from "@/../public/bobr1.jpg"
-import image2 from "@/../public/bobr2.png"
-import image3 from "@/../public/фон10.png"
+import TelegramIcon from "@/../public/telegram.svg";
+import FacebookIcon from "@/../public/facebook.svg";
+import InstagramIcon from "@/../public/instagram.svg";
+import VkIcon from "@/../public/vk.svg";
+import firstCard from "@/../public/firstCard.png";
+import image2 from "@/../public/bobr2.png";
+import image3 from "@/../public/фон10.png";
 
 export const NAVIGATION__BLOCKS: Record<
 	string,
 	{
-		text: string
-		leadsTo: string
+		text: string;
+		leadsTo: string;
 	}[]
 > = {
 	navigation: [
@@ -43,7 +43,7 @@ export const NAVIGATION__BLOCKS: Record<
 			text: "footer.contacts",
 		},
 	],
-}
+};
 export const SERVICES = [
 	{ text: "header.servicesList.marketing", pageLink: "/service/marketing" },
 	{ text: "header.servicesList.bots", pageLink: "/service/bots" },
@@ -56,7 +56,7 @@ export const SERVICES = [
 		text: "header.servicesList.marketingStrategy",
 		pageLink: "/service/marketing-strategy",
 	},
-]
+];
 export const FOOTER__SOCIALS = [
 	{
 		icon: TelegramIcon,
@@ -74,7 +74,7 @@ export const FOOTER__SOCIALS = [
 		icon: VkIcon,
 		link: "https://vk.com/your_page",
 	},
-]
+];
 
 export const mainPageContent = {
 	introduction: {
@@ -83,8 +83,7 @@ export const mainPageContent = {
 			{
 				title: "introduction.previewCards.0.title",
 				subtitle: {
-					casualText:
-						"introduction.previewCards.0.subtitle.casualText",
+					casualText: "introduction.previewCards.0.subtitle.casualText",
 					important: "introduction.previewCards.0.subtitle.important",
 				},
 				text: "introduction.previewCards.0.text",
@@ -96,8 +95,7 @@ export const mainPageContent = {
 			{
 				title: "introduction.previewCards.1.title",
 				subtitle: {
-					casualText:
-						"introduction.previewCards.1.subtitle.casualText",
+					casualText: "introduction.previewCards.1.subtitle.casualText",
 					important: "introduction.previewCards.1.subtitle.important",
 				},
 				text: "introduction.previewCards.1.text",
@@ -109,8 +107,7 @@ export const mainPageContent = {
 			{
 				title: "introduction.previewCards.2.title",
 				subtitle: {
-					casualText:
-						"introduction.previewCards.2.subtitle.casualText",
+					casualText: "introduction.previewCards.2.subtitle.casualText",
 					important: "introduction.previewCards.2.subtitle.important",
 				},
 				text: "introduction.previewCards.2.text",
@@ -137,7 +134,7 @@ export const mainPageContent = {
 			{
 				title: "services.items.0.title",
 				text: "services.items.0.text",
-				image: image1,
+				image: firstCard,
 			},
 			{
 				title: "services.items.1.title",
@@ -184,16 +181,12 @@ export const mainPageContent = {
 			"stepsOfWork.steps.1",
 			"stepsOfWork.steps.2",
 			"stepsOfWork.steps.3",
-			"stepsOfWork.steps.4",
 		],
 	},
 
 	consultationBlock: {
 		title: "consultationBlock.title",
-		keywords: [
-			"consultationBlock.keywords.0",
-			"consultationBlock.keywords.1",
-		],
+		keywords: ["consultationBlock.keywords.0"],
 		keyPoints: [
 			"consultationBlock.keyPoints.0",
 			"consultationBlock.keyPoints.1",
@@ -201,4 +194,4 @@ export const mainPageContent = {
 			"consultationBlock.keyPoints.3",
 		],
 	},
-}
+};

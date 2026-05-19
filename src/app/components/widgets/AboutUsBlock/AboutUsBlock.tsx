@@ -1,9 +1,9 @@
-"use client"
-import { Link } from "@/i18n/navigation"
-import styles from "./AboutUsBlock.module.css"
-import { AboutUsBlockProps } from "./AboutUsBlock.types"
-import Highlighter from "react-highlight-words"
-import { useCallback } from "react"
+"use client";
+import { Link } from "@/i18n/navigation";
+import styles from "./AboutUsBlock.module.css";
+import { AboutUsBlockProps } from "./AboutUsBlock.types";
+import Highlighter from "react-highlight-words";
+import { useCallback } from "react";
 
 export function AboutUsBlock({
 	title,
@@ -12,13 +12,13 @@ export function AboutUsBlock({
 }: AboutUsBlockProps) {
 	const handleNavigation = useCallback(
 		(e: React.MouseEvent) => {
-			e.preventDefault()
-			const el = document.getElementById(discussProjectBtn.anchor)
-			if (!el) return
-			el.scrollIntoView({ behavior: "smooth" })
+			e.preventDefault();
+			const el = document.getElementById(discussProjectBtn.anchor);
+			if (!el) return;
+			el.scrollIntoView({ behavior: "smooth" });
 		},
 		[discussProjectBtn.anchor],
-	)
+	);
 	return (
 		<section className={styles.about_us__wrapper}>
 			<div className={styles.content__container}>
@@ -35,11 +35,8 @@ export function AboutUsBlock({
 					{items.map((item) => (
 						<li
 							className={styles.about_us__list_item}
-							key={item.title}
-						>
-							<h6 className={styles.list_item_title}>
-								{item.title}
-							</h6>
+							key={item.title}>
+							<h6 className={styles.list_item_title}>{item.title}</h6>
 							<p className={styles.list_item_text}>{item.text}</p>
 						</li>
 					))}
@@ -47,11 +44,10 @@ export function AboutUsBlock({
 				<Link
 					className={styles.discuss_project_btn}
 					href={`#${discussProjectBtn.anchor}`}
-					onClick={handleNavigation}
-				>
+					onClick={handleNavigation}>
 					{discussProjectBtn.text}
 				</Link>
 			</div>
 		</section>
-	)
+	);
 }

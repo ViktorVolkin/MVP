@@ -3,7 +3,7 @@
 	flex-direction: column;
 	flex-grow: 1;
 	width: 100%;
-	padding: 50px 25px;
+	padding: 30px 20px 20px 20px;
 	height: 100%;
 	margin: 0 auto;
 	background-color: #fff;
@@ -26,7 +26,8 @@
 	font-size: clamp(20px, 2vw, 22px);
 }
 .card__subtitle_important {
-	color: red;
+	color: #d95338;
+	font-weight: 900;
 }
 .card__info {
 	color: rgb(68, 68, 67);
@@ -40,8 +41,8 @@
 
 .card__button {
 	border-radius: 1000px;
-	background-color: violet;
-	color: black;
+	background-color: darkblue;
+	color: white;
 	font-weight: 650;
 	text-transform: uppercase;
 	width: max-content;
@@ -53,8 +54,8 @@
 	}
 
 	.card__info {
-		min-height: 125px;
-		max-height: 125px;
+		min-height: 150px;
+		max-height: 150px;
 		text-align: center;
 	}
 }
@@ -66,7 +67,7 @@
 		margin: 15px 0;
 	}
 	.card__info {
-		min-height: 90px;
-		max-height: 50px;
+		min-height: 150px;
+		max-height: 150px;
 	}
 }

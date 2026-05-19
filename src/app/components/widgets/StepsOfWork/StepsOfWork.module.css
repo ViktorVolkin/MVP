@@ -3,7 +3,7 @@
 	flex-direction: column;
 	gap: 64px;
 	padding: 10%;
-	background-color: rgb(56, 56, 56);
+	background: linear-gradient(180deg, #14668c 0%, #111a2e 100%);
 	color: white;
 }
 
@@ -38,7 +38,7 @@
 	font-weight: 900;
 }
 .steps__list_item:nth-child(even) .atom {
-	color: red;
+	color: black;
 }
 .atom::before {
 	content: "";
@@ -51,7 +51,7 @@
 }
 
 .steps__list_item:nth-child(odd) .atom::before {
-	background-color: rgb(181, 43, 40);
+	background-color: darkblue;
 }
 
 .list__item_text {

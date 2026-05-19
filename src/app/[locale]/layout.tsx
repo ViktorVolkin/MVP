@@ -1,29 +1,29 @@
-import { routing } from "@/i18n/routing"
-import type { Metadata } from "next"
-import { NextIntlClientProvider } from "next-intl"
-import { Manrope } from "next/font/google"
-import "./globals.css"
-import { getMessages, getTranslations } from "next-intl/server"
-import { Footer } from "../components/widgets/Footer"
-import { Header } from "../components/widgets/Header"
-import styles from "./layout.module.css"
+import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { Manrope } from "next/font/google";
+import "./globals.css";
+import { getMessages, getTranslations } from "next-intl/server";
+import { Footer } from "../components/widgets/Footer";
+import { Header } from "../components/widgets/Header";
+import styles from "./layout.module.css";
 import {
 	FOOTER__SOCIALS,
 	NAVIGATION__BLOCKS,
 	SERVICES,
-} from "../components/lib/constants/constants"
-import { translateBlock } from "../components/lib/utils/translateBlock"
-import { Organization, WithContext, CreativeWork } from "schema-dts"
+} from "../components/lib/constants/constants";
+import { translateBlock } from "../components/lib/utils/translateBlock";
+import { Organization, WithContext, CreativeWork } from "schema-dts";
 
 const manrope = Manrope({
 	subsets: ["cyrillic", "latin"],
 	preload: true,
-})
+});
 
-const siteUrl = process.env.PUBLIC_SITE_URL ?? ""
+const siteUrl = process.env.PUBLIC_SITE_URL ?? "";
 
 export async function generateMetadata() {
-	const t = getTranslations()
+	const t = getTranslations();
 	return {
 		title: {
 			template: `%s | WebLeadCraft`,
@@ -57,23 +57,23 @@ export async function generateMetadata() {
 				"x-default": "/ru",
 			},
 		},
-	}
+	};
 }
 
 export function generateStaticParams() {
-	return routing.locales.map((locale) => ({ locale }))
+	return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function RootLayout({
 	children,
 	params,
 }: {
-	children: React.ReactNode
-	params: Promise<{ locale: string }>
+	children: React.ReactNode;
+	params: Promise<{ locale: string }>;
 }) {
-	const { locale } = await params
-	const messages = await getMessages()
-	const t = await getTranslations()
+	const { locale } = await params;
+	const messages = await getMessages();
+	const t = await getTranslations();
 
 	// const organizationJsonLd: WithContext<Organization> = {
 	// 	"@context": "https://schema.org",
@@ -108,9 +108,7 @@ export default async function RootLayout({
 					<NextIntlClientProvider messages={messages}>
 						<div className={styles.wrapper}>
 							<Header
-								listLinks={await translateBlock(
-									NAVIGATION__BLOCKS.navigation,
-								)}
+								listLinks={await translateBlock(NAVIGATION__BLOCKS.navigation)}
 								phoneButton={{
 									phoneNumber: "+79934708112",
 									makeCall: t("header.makeCall"),
@@ -130,17 +128,14 @@ export default async function RootLayout({
 									},
 									{
 										title: t("footer.aboutCompany"),
-										elements: await translateBlock(
-											NAVIGATION__BLOCKS.aboutUs,
-										),
+										elements: await translateBlock(NAVIGATION__BLOCKS.aboutUs),
 									},
 								]}
-								socials={FOOTER__SOCIALS}
-							></Footer>
+								socials={FOOTER__SOCIALS}></Footer>
 						</div>
 					</NextIntlClientProvider>
 				</body>
 			</html>
 		</>
-	)
+	);
 }

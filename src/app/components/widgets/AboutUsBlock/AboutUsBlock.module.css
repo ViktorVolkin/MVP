@@ -17,6 +17,7 @@
 	font-size: clamp(30px, 90% + 3vw, 60px);
 	width: 90%;
 	margin: 0 auto 100px auto;
+	text-align: center;
 }
 
 .about_us__list {
@@ -38,9 +39,10 @@
 
 .list_item_title {
 	font-size: 30px;
-	font-weight: 600;
+	font-weight: 900;
 	width: max-content;
 	align-self: center;
+	color: #d95338;
 }
 
 .list_item_text {
