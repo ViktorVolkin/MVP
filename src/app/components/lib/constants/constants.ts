@@ -4,7 +4,7 @@ import InstagramIcon from "@/../public/instagram.svg";
 import VkIcon from "@/../public/vk.svg";
 import firstCard from "@/../public/firstCard.png";
 import image2 from "@/../public/bobr2.png";
-import image3 from "@/../public/фон10.png";
+import image3 from "@/../public/bobr3.jpeg";
 
 export const NAVIGATION__BLOCKS: Record<
 	string,
