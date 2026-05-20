@@ -23,15 +23,76 @@
 	font-weight: 900;
 	color: #fff;
 }
+
+.previewBlock__subtitle {
+	font-size: 24px;
+	color: #fff;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.previewBlock__button {
+	margin-top: 32px;
+	color: white;
+	background: linear-gradient(135deg, #00d2ff 0%, #0052ff 100%);
+	box-shadow:
+		0 4px 15px rgba(0, 210, 255, 0.4),
+		0 10px 20px -5px rgba(0, 19, 51, 0.5);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+}
+
+.previewBlock__button:hover {
+	transform: scale(1.1);
+	background: linear-gradient(135deg, #00f0ff 0%, #004bff 100%);
+	box-shadow:
+		0 0 25px rgba(0, 240, 255, 0.7),
+		0 10px 30px rgba(0, 75, 255, 0.4),
+		inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.previewBlock__button:active {
+	transform: scale(0.95);
+
+	box-shadow:
+		0 0 15px rgba(0, 240, 255, 0.5),
+		0 4px 10px rgba(0, 19, 51, 0.4);
+}
+
+.previewBlock__button::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.3),
+		transparent
+	);
+	transition: 0.5s;
+}
+
+.previewBlock__button:hover::before {
+	left: 100%;
+}
+
 .cards__container {
 	margin-top: 150px;
 	width: 100%;
-	align-items: center;
 	justify-content: center;
 	display: flex;
 	max-width: 1200px;
 	gap: 24px;
 }
+.cards__container > * {
+	display: flex;
+	flex: 1;
+}
+
 .about_company {
 	position: absolute;
 	bottom: 0;
@@ -47,7 +108,7 @@
 }
 .about_company_title {
 	font-size: 30px;
-	color: #000;
+	color: darkblue;
 	text-align: center;
 	margin-bottom: 25px;
 }

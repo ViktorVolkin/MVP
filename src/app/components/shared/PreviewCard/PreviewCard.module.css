@@ -4,7 +4,6 @@
 	flex-grow: 1;
 	width: 100%;
 	padding: 30px 20px 20px 20px;
-	height: 100%;
 	margin: 0 auto;
 	background-color: #fff;
 	border-radius: 16px;
@@ -31,8 +30,7 @@
 }
 .card__info {
 	color: rgb(68, 68, 67);
-	min-height: 130px;
-	max-height: 130px;
+	min-height: 140px;
 	margin-bottom: 20px;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -48,7 +46,7 @@
 	width: max-content;
 	padding: 15px;
 }
-@media (max-width: 900px) {
+@media (max-width: 960px) {
 	.card__wrapper {
 		max-width: 500px;
 	}

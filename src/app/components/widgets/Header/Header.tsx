@@ -1,18 +1,18 @@
-"use client"
-import styles from "./Header.module.css"
-import { Link } from "@/i18n/navigation"
-import Image from "next/image"
-import Logo from "@/../public/logo.png"
-import BurgerMenu from "@/../public/burgerMenu.svg"
-import { useState } from "react"
-import { useLocale, useTranslations } from "next-intl"
-import Dropdown from "../../shared/Dropdown"
-import { routing } from "@/i18n/routing"
-import russianFlag from "@/../public/russianFlag.png"
-import unitedKingdomFlag from "@/../public/UKflag.png"
-import SidebarMenu from "../SidebarMenu"
-import TelegramIcon from "@/../public/telegram.svg"
-import { useSwitchLanguage } from "../../lib/hooks"
+"use client";
+import styles from "./Header.module.css";
+import { Link } from "@/i18n/navigation";
+import Image from "next/image";
+import Logo from "@/../public/logo.png";
+import BurgerMenu from "@/../public/burgerMenu.svg";
+import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import Dropdown from "../../shared/Dropdown";
+import { routing } from "@/i18n/routing";
+import russianFlag from "@/../public/russianFlag.png";
+import unitedKingdomFlag from "@/../public/UKflag.png";
+import SidebarMenu from "../SidebarMenu";
+import TelegramIcon from "@/../public/telegram.svg";
+import { useSwitchLanguage } from "../../lib/hooks";
 
 export function Header({
 	listLinks,
@@ -21,16 +21,16 @@ export function Header({
 	email,
 	services,
 }: {
-	listLinks: { text: string; leadsTo: string }[]
-	phoneButton: { phoneNumber: string; makeCall: string }
-	telegram: string
-	email: string
-	services: { text: string; pageLink: string }[]
+	listLinks: { text: string; leadsTo: string }[];
+	phoneButton: { phoneNumber: string; makeCall: string };
+	telegram: string;
+	email: string;
+	services: { text: string; pageLink: string }[];
 }) {
-	const [popupOpen, setPopupOpen] = useState<boolean>(false)
-	const t = useTranslations()
-	const currentLanguage = useLocale()
-	const handleLanguageChange = useSwitchLanguage()
+	const [popupOpen, setPopupOpen] = useState<boolean>(false);
+	const t = useTranslations();
+	const currentLanguage = useLocale();
+	const handleLanguageChange = useSwitchLanguage();
 	return (
 		<header className={styles.header__container}>
 			<div className={styles.header__wrapper}>
@@ -49,8 +49,7 @@ export function Header({
 							{listLinks.map((item) => (
 								<li
 									className={styles.navigation__list_item}
-									key={`${item.leadsTo}-${item.text}`}
-								>
+									key={`${item.leadsTo}-${item.text}`}>
 									<Link href={item.leadsTo}>{item.text}</Link>
 								</li>
 							))}
@@ -58,14 +57,12 @@ export function Header({
 							<li>
 								<Dropdown
 									sideToPopUp="right"
-									buttonText={t("header.services")}
-								>
+									buttonText={t("header.services")}>
 									{services.map((item) => (
 										<Link
 											className={styles.services__link}
 											href={item.pageLink}
-											key={`${item.pageLink}-${item.text}`}
-										>
+											key={`${item.pageLink}-${item.text}`}>
 											{item.text}
 										</Link>
 									))}
@@ -74,33 +71,18 @@ export function Header({
 							<li>
 								<Dropdown
 									sideToPopUp="right"
-									buttonText={
-										currentLanguage === "ru" ? "RUS" : "ENG"
-									}
+									buttonText={currentLanguage === "ru" ? "RUS" : "ENG"}
 									iconBeforeText={
-										currentLanguage === "ru"
-											? russianFlag
-											: unitedKingdomFlag
-									}
-								>
+										currentLanguage === "ru" ? russianFlag : unitedKingdomFlag
+									}>
 									<>
 										{routing.locales
-											.filter(
-												(lang) =>
-													lang !== currentLanguage,
-											)
+											.filter((lang) => lang !== currentLanguage)
 											.map((item) => (
 												<button
 													key={item}
-													onClick={() =>
-														handleLanguageChange(
-															item,
-														)
-													}
-												>
-													{item === "ru"
-														? "RUS"
-														: "ENG"}
+													onClick={() => handleLanguageChange(item)}>
+													{item === "ru" ? "RUS" : "ENG"}
 												</button>
 											))}
 									</>
@@ -109,12 +91,9 @@ export function Header({
 						</ul>
 						<Link
 							href={`tel:${phoneButton.phoneNumber}`}
-							className={styles.navigation__button_call}
-						>
+							className={styles.navigation__button_call}>
 							{phoneButton.phoneNumber}
-							<span className={styles.make_call}>
-								{phoneButton.makeCall}
-							</span>
+							<span className={styles.make_call}>{phoneButton.makeCall}</span>
 						</Link>
 					</nav>
 				</div>
@@ -123,25 +102,17 @@ export function Header({
 					<div className={styles.phone__buttons}>
 						<Dropdown
 							sideToPopUp="right"
-							buttonText={
-								currentLanguage === "ru" ? "RUS" : "ENG"
-							}
+							buttonText={currentLanguage === "ru" ? "RUS" : "ENG"}
 							iconBeforeText={
-								currentLanguage === "ru"
-									? russianFlag
-									: unitedKingdomFlag
-							}
-						>
+								currentLanguage === "ru" ? russianFlag : unitedKingdomFlag
+							}>
 							<>
 								{routing.locales
 									.filter((lang) => lang !== currentLanguage)
 									.map((item) => (
 										<button
 											key={item}
-											onClick={() =>
-												handleLanguageChange(item)
-											}
-										>
+											onClick={() => handleLanguageChange(item)}>
 											{item === "ru" ? "RUS" : "ENG"}
 										</button>
 									))}
@@ -158,16 +129,12 @@ export function Header({
 				</div>
 				<SidebarMenu
 					isOpen={popupOpen}
-					onClose={() => setPopupOpen(false)}
-				>
+					onClose={() => setPopupOpen(false)}>
 					<div className={styles.sidebarMenu__wrapper}>
 						<div className={styles.sidebarMenu__contacts}>
 							<Link
 								href={telegram}
-								className={
-									styles.sidebarMenu__contacts_telegram
-								}
-							>
+								className={styles.sidebarMenu__contacts_telegram}>
 								<Image
 									src={TelegramIcon}
 									alt={t("alts.telegram")}
@@ -177,14 +144,12 @@ export function Header({
 							</Link>
 							<Link
 								href={`tel:${phoneButton.phoneNumber}`}
-								className={styles.sidebarMenu__phone_number}
-							>
+								className={styles.sidebarMenu__phone_number}>
 								{phoneButton.phoneNumber}
 							</Link>
 							<Link
 								href={`mailto:${email}`}
-								className={styles.sidebarMenu__email}
-							>
+								className={styles.sidebarMenu__email}>
 								{email}
 							</Link>
 						</div>
@@ -192,8 +157,7 @@ export function Header({
 							{listLinks.map((item) => (
 								<li
 									className={styles.sidebarMenu__list_item}
-									key={`${item.leadsTo}-${item.text}`}
-								>
+									key={`${item.leadsTo}-${item.text}`}>
 									<Link href={item.leadsTo}>{item.text}</Link>
 								</li>
 							))}
@@ -202,5 +166,5 @@ export function Header({
 				</SidebarMenu>
 			</div>
 		</header>
-	)
+	);
 }

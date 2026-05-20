@@ -1,27 +1,27 @@
-"use client"
-import { Controller, useForm } from "react-hook-form"
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useTranslations } from "next-intl"
-import PhoneInput from "react-phone-number-input"
-import "react-phone-number-input/style.css"
-import styles from "./ConsultationForm.module.css"
-import Dropdown from "../../shared/Dropdown"
-import clsx from "clsx"
-import { sendMessageToTelegram } from "./_api/action"
-import { useState } from "react"
+"use client";
+import { Controller, useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import styles from "./ConsultationForm.module.css";
+import Dropdown from "../../shared/Dropdown";
+import clsx from "clsx";
+import { sendMessageToTelegram } from "./_api/action";
+import { useState } from "react";
 
-export function ConsultationForm() {
-	const t = useTranslations("ConsultationForm")
-	const [submitError, setSubmitError] = useState<string | null>(null)
-	const [isSubmitting, setIsSubmitting] = useState(false)
+export function ConsultationForm({ className }: { className?: string }) {
+	const t = useTranslations("ConsultationForm");
+	const [submitError, setSubmitError] = useState<string | null>(null);
+	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const consultationFormSchema = z.object({
 		name: z.string().min(2, t("errors.name")),
 		phone: z.e164({ message: t("errors.phone") }),
 		preferredType: z.enum(["call", "sms"]),
-	})
-	type FormValues = z.infer<typeof consultationFormSchema>
+	});
+	type FormValues = z.infer<typeof consultationFormSchema>;
 
 	const {
 		register,
@@ -36,25 +36,29 @@ export function ConsultationForm() {
 			phone: "",
 			preferredType: "call",
 		},
-	})
+	});
 	const onSubmit = handleSubmit(async (data) => {
-		setIsSubmitting(true)
-		setSubmitError(null)
-		const result = await sendMessageToTelegram(data)
-		setIsSubmitting(false)
+		setIsSubmitting(true);
+		setSubmitError(null);
+		const result = await sendMessageToTelegram(data);
+		setIsSubmitting(false);
 
 		if (!result.success) {
-			setSubmitError(result.error || t("errors.generic_submit"))
+			setSubmitError(result.error || t("errors.generic_submit"));
 		} else {
-			alert("Успешно отправлено!")
-			reset()
+			alert("Успешно отправлено!");
+			reset();
 		}
-	})
+	});
 	return (
-		<form onSubmit={onSubmit} className={styles.form}>
+		<form
+			onSubmit={onSubmit}
+			className={clsx(styles.form, className)}>
 			{submitError && (
 				<div className={styles.input__container}>
-					<Dropdown sideToPopUp="bottom" variant="error">
+					<Dropdown
+						sideToPopUp="bottom"
+						variant="error">
 						<p className={styles.error}>{submitError}</p>
 					</Dropdown>
 				</div>
@@ -69,12 +73,11 @@ export function ConsultationForm() {
 				<div
 					className={clsx({
 						[styles.hidden]: !errors.name?.message,
-					})}
-				>
-					<Dropdown sideToPopUp="bottom" variant="error">
-						<p className={styles.error}>
-							{errors.name?.message ?? ""}
-						</p>
+					})}>
+					<Dropdown
+						sideToPopUp="bottom"
+						variant="error">
+						<p className={styles.error}>{errors.name?.message ?? ""}</p>
 					</Dropdown>
 				</div>
 			</div>
@@ -88,7 +91,7 @@ export function ConsultationForm() {
 							placeholder={t("placeholders.phone")}
 							value={value}
 							onChange={onChange}
-							defaultCountry="RU"
+							defaultCountry="ME"
 							international
 							className={styles.phoneInput}
 							numberInputProps={{
@@ -100,9 +103,10 @@ export function ConsultationForm() {
 				<div
 					className={clsx({
 						[styles.hidden]: !errors.phone?.message,
-					})}
-				>
-					<Dropdown sideToPopUp="bottom" variant="error">
+					})}>
+					<Dropdown
+						sideToPopUp="bottom"
+						variant="error">
 						<p className={styles.error}>{errors.phone?.message}</p>
 					</Dropdown>
 				</div>
@@ -130,10 +134,9 @@ export function ConsultationForm() {
 			<button
 				type="submit"
 				className={styles.send_btn}
-				disabled={isSubmitting}
-			>
+				disabled={isSubmitting}>
 				{t("submitButton")}
 			</button>
 		</form>
-	)
+	);
 }

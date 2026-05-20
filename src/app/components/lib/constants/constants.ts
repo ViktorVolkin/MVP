@@ -119,6 +119,7 @@ export const mainPageContent = {
 		],
 		aboutCompanyBlock: {
 			title: "introduction.aboutCompanyBlock.title",
+			subtitle: "introduction.aboutCompanyBlock.subtitle",
 			text: "introduction.aboutCompanyBlock.text",
 		},
 	},
@@ -193,5 +194,6 @@ export const mainPageContent = {
 			"consultationBlock.keyPoints.2",
 			"consultationBlock.keyPoints.3",
 		],
+		id: "discuss-project",
 	},
 };

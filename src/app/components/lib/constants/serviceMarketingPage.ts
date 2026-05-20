@@ -5,33 +5,34 @@ export const ServiceMarketingPageContent = {
 	},
 	steps: {
 		title: "ServiceMarketingPage.steps.title",
-		items: [
+		steps: [
 			{
 				title: "ServiceMarketingPage.steps.items.0.title",
-				textKeys: "ServiceMarketingPage.steps.items.0.text",
+				text: ["ServiceMarketingPage.steps.items.0.text"],
 			},
 			{
 				title: "ServiceMarketingPage.steps.items.1.title",
-				textKeys: "ServiceMarketingPage.steps.items.1.text",
+				text: ["ServiceMarketingPage.steps.items.1.text"],
 			},
 			{
 				title: "ServiceMarketingPage.steps.items.2.title",
-				textKeys: "ServiceMarketingPage.steps.items.2.text",
+				text: ["ServiceMarketingPage.steps.items.2.text"],
 			},
 			{
 				title: "ServiceMarketingPage.steps.items.3.title",
-				textKeys: "ServiceMarketingPage.steps.items.3.text",
+				text: ["ServiceMarketingPage.steps.items.3.text"],
 			},
 			{
 				title: "ServiceMarketingPage.steps.items.4.title",
-				textKeys: "ServiceMarketingPage.steps.items.4.text",
+				text: ["ServiceMarketingPage.steps.items.4.text"],
 			},
 			{
 				title: "ServiceMarketingPage.steps.items.5.title",
-				textKeys: "ServiceMarketingPage.steps.items.5.text",
+				text: ["ServiceMarketingPage.steps.items.5.text"],
 			},
 		],
 	},
+
 	tariffs: {
 		title: "ServiceMarketingPage.tariffs.title",
 		description: "ServiceMarketingPage.tariffs.description",
@@ -43,29 +44,40 @@ export const ServiceMarketingPageContent = {
 					text: "ServiceMarketingPage.tariffs.items.base.price",
 					color: "red",
 				},
-				previewText:
-					"ServiceMarketingPage.tariffs.items.base.previewText",
+				previewText: "ServiceMarketingPage.tariffs.items.base.previewText",
 				list: [
 					{
-						titleKey: "ServiceMarketingPage.tariffs.labels.forWhom",
-						textKey:
-							"ServiceMarketingPage.tariffs.items.base.forWhomText",
-						keywordsKey:
-							"ServiceMarketingPage.tariffs.items.base.forWhomKeywords",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.forWhom",
+							keywords: [] as string[],
+						},
+						text: {
+							text: "ServiceMarketingPage.tariffs.items.base.forWhomText",
+							keywords: [] as string[],
+						},
 					},
 					{
-						titleKey: "ServiceMarketingPage.tariffs.labels.budget",
-						textKey:
-							"ServiceMarketingPage.tariffs.items.base.budgetText",
-						keywordsKey:
-							"ServiceMarketingPage.tariffs.items.base.budgetKeywords",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.budget",
+							keywords: [] as string[],
+						},
+						text: {
+							text: "ServiceMarketingPage.tariffs.items.base.budgetText",
+							keywords: [] as string[],
+						},
 					},
 					{
-						titleKey:
-							"ServiceMarketingPage.tariffs.labels.included",
-						itemsKey:
-							"ServiceMarketingPage.tariffs.items.base.includedList",
-						listType: "ul",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.included",
+							keywords: [] as string[],
+						},
+						listType: "ul" as const,
+						items: [
+							{
+								text: "ServiceMarketingPage.tariffs.items.base.includedList",
+								keywords: [] as string[],
+							},
+						],
 					},
 				],
 			},
@@ -76,29 +88,40 @@ export const ServiceMarketingPageContent = {
 					text: "ServiceMarketingPage.tariffs.items.standard.price",
 					color: "blue",
 				},
-				previewText:
-					"ServiceMarketingPage.tariffs.items.standard.previewText",
+				previewText: "ServiceMarketingPage.tariffs.items.standard.previewText",
 				list: [
 					{
-						titleKey: "ServiceMarketingPage.tariffs.labels.forWhom",
-						textKey:
-							"ServiceMarketingPage.tariffs.items.standard.forWhomText",
-						keywordsKey:
-							"ServiceMarketingPage.tariffs.items.standard.forWhomKeywords",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.forWhom",
+							keywords: [] as string[],
+						},
+						text: {
+							text: "ServiceMarketingPage.tariffs.items.standard.forWhomText",
+							keywords: [] as string[],
+						},
 					},
 					{
-						titleKey: "ServiceMarketingPage.tariffs.labels.budget",
-						textKey:
-							"ServiceMarketingPage.tariffs.items.standard.budgetText",
-						keywordsKey:
-							"ServiceMarketingPage.tariffs.items.standard.budgetKeywords",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.budget",
+							keywords: [] as string[],
+						},
+						text: {
+							text: "ServiceMarketingPage.tariffs.items.standard.budgetText",
+							keywords: [] as string[],
+						},
 					},
 					{
-						titleKey:
-							"ServiceMarketingPage.tariffs.labels.included",
-						itemsKey:
-							"ServiceMarketingPage.tariffs.items.standard.includedList",
-						listType: "ul",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.included",
+							keywords: [] as string[],
+						},
+						listType: "ul" as const,
+						items: [
+							{
+								text: "ServiceMarketingPage.tariffs.items.standard.includedList",
+								keywords: [] as string[],
+							},
+						],
 					},
 				],
 			},
@@ -109,32 +132,43 @@ export const ServiceMarketingPageContent = {
 					text: "ServiceMarketingPage.tariffs.items.premium.price",
 					color: "purple",
 				},
-				previewText:
-					"ServiceMarketingPage.tariffs.items.premium.previewText",
+				previewText: "ServiceMarketingPage.tariffs.items.premium.previewText",
 				list: [
 					{
-						titleKey: "ServiceMarketingPage.tariffs.labels.forWhom",
-						textKey:
-							"ServiceMarketingPage.tariffs.items.premium.forWhomText",
-						keywordsKey:
-							"ServiceMarketingPage.tariffs.items.premium.forWhomKeywords",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.forWhom",
+							keywords: [] as string[],
+						},
+						text: {
+							text: "ServiceMarketingPage.tariffs.items.premium.forWhomText",
+							keywords: [] as string[],
+						},
 					},
 					{
-						titleKey: "ServiceMarketingPage.tariffs.labels.budget",
-						textKey:
-							"ServiceMarketingPage.tariffs.items.premium.budgetText",
-						keywordsKey:
-							"ServiceMarketingPage.tariffs.items.premium.budgetKeywords",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.budget",
+							keywords: [] as string[],
+						},
+						text: {
+							text: "ServiceMarketingPage.tariffs.items.premium.budgetText",
+							keywords: [] as string[],
+						},
 					},
 					{
-						titleKey:
-							"ServiceMarketingPage.tariffs.labels.included",
-						itemsKey:
-							"ServiceMarketingPage.tariffs.items.premium.includedList",
-						listType: "ul",
+						title: {
+							title: "ServiceMarketingPage.tariffs.labels.included",
+							keywords: [] as string[],
+						},
+						listType: "ul" as const,
+						items: [
+							{
+								text: "ServiceMarketingPage.tariffs.items.premium.includedList",
+								keywords: [] as string[],
+							},
+						],
 					},
 				],
 			},
 		],
 	},
-}
+};

@@ -1,10 +1,7 @@
-import { PreviewCardProps } from "../../shared/PreviewCard/PreviewCard.types"
+import { PreviewCardProps } from "../../shared/PreviewCard/PreviewCard.types";
 
 export interface IntroductionBlockProps {
-	title: string
-	previewCards: PreviewCardProps[]
-	aboutCompanyBlock: {
-		title: string
-		text: string
-	}
+	title: string;
+	aboutCompanyBlock: { title: string; subtitle: string; text: string };
+	children: React.ReactNode;
 }

@@ -1,22 +1,22 @@
-import { ServiceTariffBlockProps } from "./ServiceTariffBlock.types"
-import styles from "./ServiceTariffBlock.module.css"
-import { ServiceCard } from "../../shared/ServiceCard"
-export function ServiceTariffBlock({
+import { ServiceTariffBlockProps } from "./ServiceTariffBlock.types";
+import styles from "./ServiceTariffBlock.module.css";
+import { getTranslations } from "next-intl/server";
+
+export async function ServiceTariffBlock({
 	title,
 	description,
-	cards,
+	children,
 }: ServiceTariffBlockProps) {
+	const t = await getTranslations();
 	return (
 		<section className={styles.tariff__block}>
 			<div className={styles.info}>
-				<h6 className={styles.title}>{title}</h6>
-				<p className={styles.description}>{description}</p>
+				<h6 className={styles.title}>{t(title)}</h6>
+				<p className={styles.description}>
+					{description ? t(description) : null}
+				</p>
 			</div>
-			<div className={styles.cards}>
-				{cards.map((elem) => (
-					<ServiceCard {...elem} key={elem.tariffName} />
-				))}
-			</div>
+			{children}
 		</section>
-	)
+	);
 }
